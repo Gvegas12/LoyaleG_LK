@@ -2,9 +2,10 @@
   display: block;
   width: 0;
   height: 0;
+  border-radius: 20px;
   border-left: 6px solid transparent;
   border-right: 6px solid transparent;
-  border-top: 6px solid var(--primary);
+  border-top: 6px solid var(--primary-color);
   transition: transform 0.3s;
 }
 .UITriangle--active {

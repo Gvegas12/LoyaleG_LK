@@ -1,0 +1,10 @@
+.Navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  .pageName {
+    font: var(--font-title-m);
+    font-weight: bold;
+    color: var(--secondary-text-color);
+  }
+}
