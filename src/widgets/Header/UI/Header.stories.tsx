@@ -3,7 +3,7 @@ import { ComponentStory, ComponentMeta } from "@storybook/react";
 import { Header, IHeaderProps } from "./Header";
 
 export default {
-  title: "shared/Header",
+  title: "widgets/Header",
   component: Header,
   argTypes: {
     backgroundColor: { control: "color" },

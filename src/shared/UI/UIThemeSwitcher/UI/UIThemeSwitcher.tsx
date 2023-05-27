@@ -1,24 +1,24 @@
 import React from "react";
 import clsx from "clsx";
 
+import { Theme, useTheme } from "@/shared/providers/ThemeProvider";
+import { UIButton } from "../../UIButton";
+import ChangeThemeIcon from "@/shared/assets/img/icons/changeThemeIcon.svg";
+
 import styles from "./UIThemeSwitcher.module.scss";
 
-import { Theme, useTheme } from "@/shared/providers/ThemeProvider";
-import UI from "../..";
-
 export interface IUIThemeSwitcherProps {
-  children?: React.ReactNode;
   className?: string;
 }
 
 export const UIThemeSwitcher: React.FC<IUIThemeSwitcherProps> = ({
   className,
-  children,
 }) => {
   const [count, setCount] = React.useState(0);
-  const { theme, setNewTheme } = useTheme();
+  const { setNewTheme } = useTheme();
 
   const onChangeTheme = (): void => {
+    /* TODO */
     setCount((prev) => (prev += 1));
     if (count === 1) {
       setNewTheme(Theme.BLUE);
@@ -32,18 +32,18 @@ export const UIThemeSwitcher: React.FC<IUIThemeSwitcherProps> = ({
     if (count === 4) {
       setNewTheme(Theme.PINK);
     }
-    if (count >= 5) {
+    if (count > 4) {
       setCount(0);
     }
   };
 
   return (
-    <UI.Button
+    <UIButton
+      data-testid="test--uithemeswitcher"
       onClick={onChangeTheme}
       className={clsx(styles.UIThemeSwitcher, className)}
     >
-      changeTheme
-      {theme}
-    </UI.Button>
+      <ChangeThemeIcon />
+    </UIButton>
   );
 };

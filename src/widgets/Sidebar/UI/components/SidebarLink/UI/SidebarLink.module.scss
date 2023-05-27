@@ -1,0 +1,16 @@
+.SidebarLink {
+  display: flex;
+  align-items: center;
+  column-gap: 10px;
+  color: var(--secondary-text-color);
+}
+.SidebarLink.active {
+  color: var(--primary-color);
+  &::before {
+    content: "";
+    position: absolute;
+    height: 12px;
+    border-left: 3px solid var(--primary-color);
+    left: 0;
+  }
+}

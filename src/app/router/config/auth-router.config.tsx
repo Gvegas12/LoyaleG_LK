@@ -38,4 +38,8 @@ export const authRouteConfig: Record<AuthRoutesEnum, RouteProps> = {
     path: authRoutePaths.telegram,
     element: <SigninPage />,
   },
+  [AuthRoutesEnum.ABOUT]: {
+    path: authRoutePaths.about,
+    element: <SigninPage />,
+  },
 };
