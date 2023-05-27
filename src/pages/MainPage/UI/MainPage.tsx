@@ -15,7 +15,6 @@ const MainPage: React.FC = () => {
   return (
     <div>
       <div>{t("Главная страница")}</div>
-      <UI.ThemeSwitcher />
     </div>
   );
 };

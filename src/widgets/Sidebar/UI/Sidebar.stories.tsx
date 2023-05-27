@@ -3,7 +3,7 @@ import { ComponentStory, ComponentMeta } from "@storybook/react";
 import { Sidebar, ISidebarProps } from "./Sidebar";
 
 export default {
-  title: "shared/Sidebar",
+  title: "widgets/Sidebar",
   component: Sidebar,
   argTypes: {
     backgroundColor: { control: "color" },

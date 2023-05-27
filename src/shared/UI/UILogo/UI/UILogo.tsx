@@ -1,13 +1,15 @@
 import React from "react";
 import clsx from "clsx";
 
-import styles from "./UILogo.module.scss";
+import Logo from "@/shared/assets/img/Logo.svg";
+import { useChangeSVGTheme } from "@/shared/hooks/useChangeSVGTheme";
 
 export interface IUILogoProps {
-  children: React.ReactNode;
   className?: string;
 }
 
-export const UILogo: React.FC<IUILogoProps> = ({ className, children }) => (
-  <div className={clsx(styles.UILogo, className)}>{children}</div>
-);
+export const UILogo: React.FC<IUILogoProps> = ({ className }) => {
+  useChangeSVGTheme();
+
+  return <Logo data-testid="test--uilogo" className={clsx(className)} />;
+};

@@ -15,6 +15,4 @@ const StorybookComponent: ComponentStory<typeof UILogo> = (args) => (
 );
 
 export const Primary = StorybookComponent.bind({});
-Primary.args = {
-  children: "Text",
-} as IUILogoProps;
+Primary.args = {} as IUILogoProps;
