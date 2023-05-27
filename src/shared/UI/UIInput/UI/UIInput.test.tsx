@@ -3,7 +3,7 @@ import { UIInput } from "./UIInput";
 
 describe("UIInput", () => {
   test("Test render ", () => {
-    render(<UIInput>Test</UIInput>);
-    expect(screen.getByText("Test")).toBeInTheDocument();
+    render(<UIInput />);
+    expect(screen.getByTestId("uiinput")).toBeInTheDocument();
   });
 });

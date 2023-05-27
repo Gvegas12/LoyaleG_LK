@@ -2,25 +2,24 @@ import React from "react";
 import clsx from "clsx";
 
 import SwapIcon from "./icons/swap.svg";
+import PlusIcon from "./icons/plus.svg";
 
 import styles from "./UIStatisticsCard.module.scss";
 
-interface IUIStatisticsChildrenProps {
+interface IUIStatisticsCardChildrenProps {
   className?: string;
   children: React.ReactNode;
 }
 
-const UIStatisticsCardMiddleChildren: React.FC<IUIStatisticsChildrenProps> = ({
-  className,
-  children,
-}) => (
-  <div className={clsx("UIStatisticsCardMiddleChildren", className)}>
-    {children}
-  </div>
-);
+const UIStatisticsCardMiddleChildren: React.FC<IUIStatisticsCardChildrenProps> =
+  ({ className, children }) => (
+    <div className={clsx("UIStatisticsCardMiddleChildren", className)}>
+      {children}
+    </div>
+  );
 
 const UIStatisticsCardFilterChildren: React.FC<
-  IUIStatisticsChildrenProps & {
+  IUIStatisticsCardChildrenProps & {
     icon?: React.ReactSVGElement;
   }
 > = ({ className, children, icon }) => (
@@ -31,33 +30,44 @@ const UIStatisticsCardFilterChildren: React.FC<
 );
 
 export interface IUIStatisticsCardProps {
+  addNew?: boolean;
   icon?: React.ReactSVGElement;
-  title: string;
+  title?: string;
   pointer?: boolean;
-  children: React.ReactNode;
+  children?: React.ReactNode;
   className?: string;
+  onClick?: () => void;
 }
 
 const UIStatisticsCard: React.FC<IUIStatisticsCardProps> = ({
+  addNew,
   icon,
   title,
   pointer = true,
   children,
   className,
+  onClick,
 }) => (
   <div
     data-testid="statisticsCard"
+    onClick={onClick}
     className={clsx(
-      styles.UIStatisticsCard,
+      addNew ? styles.addNew : styles.UIStatisticsCard,
       pointer && styles.pointer,
       className
     )}
   >
-    <div className={styles.header}>
-      <p className={styles.title}>{title}</p>
-      {icon}
-    </div>
-    {children}
+    {!addNew ? (
+      <>
+        <div className={styles.header}>
+          <p className={styles.title}>{title}</p>
+          {icon}
+        </div>
+        {children}
+      </>
+    ) : (
+      <PlusIcon className={styles.plus} />
+    )}
   </div>
 );
 

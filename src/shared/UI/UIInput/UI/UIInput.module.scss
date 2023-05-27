@@ -1,2 +1,42 @@
 .UIInput {
+  width: 284px;
+  .label {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .labelBtn {
+      cursor: pointer;
+      text-decoration: underline;
+      background-color: transparent;
+    }
+
+    &Name {
+      display: flex;
+      color: var(--text-lightgray);
+      .asterisk {
+        margin-left: 5px;
+        color: #ff5555;
+      }
+    }
+  }
+
+  .input {
+    width: 100%;
+    margin-top: 14px;
+    height: 50px;
+    padding: 0 20px;
+    border: 1px solid var(--gray-125);
+    border-radius: 4px;
+    font-size: 1rem;
+
+    &::placeholder {
+      color: var(--text-lightgray);
+      font-weight: 300;
+    }
+  }
+  .input:disabled {
+    background-color: var(--gray);
+    border-color: var(--gray);
+  }
 }

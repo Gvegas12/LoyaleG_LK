@@ -5,6 +5,7 @@ import { AuthRoutesEnum, authRoutePaths } from "@/shared/config/routes";
 import MainPage from "@/pages/MainPage";
 import SigninPage from "@/pages/SigninPage";
 import Telegram from "@/pages/Telegram";
+import EstablishmentsPage from "@/pages/EstablishmentsPage";
 
 export const authRouteConfig: Record<AuthRoutesEnum, RouteProps> = {
   [AuthRoutesEnum.HOME]: {
@@ -21,7 +22,7 @@ export const authRouteConfig: Record<AuthRoutesEnum, RouteProps> = {
   },
   [AuthRoutesEnum.ESTABLISHMENTS]: {
     path: authRoutePaths.establishments,
-    element: <SigninPage />,
+    element: <EstablishmentsPage />,
   },
   [AuthRoutesEnum.ESTABLISHMENT_ITEM]: {
     path: authRoutePaths.establishment_item,
