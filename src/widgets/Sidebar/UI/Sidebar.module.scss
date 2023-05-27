@@ -2,7 +2,7 @@
 
 .Sidebar {
   width: var(--sidebar-width);
-  padding: 30px;
+  padding: var(--sidebar-padding);
   background-color: var(--secondary-bg-color);
   border: 1px solid #262835;
   box-shadow: inset -10px 0px 18px rgba(22, 23, 23, 0.5);

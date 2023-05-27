@@ -1,0 +1,21 @@
+.Statistics {
+  display: flex;
+  flex-direction: column;
+
+  .title {
+    font: var(--font-l);
+    font-weight: 600;
+  }
+
+  .description {
+    color: var(--third-text-color);
+  }
+
+  .cards {
+    margin-top: 20px;
+
+    display: flex;
+    align-items: center;
+    column-gap: 20px;
+  }
+}

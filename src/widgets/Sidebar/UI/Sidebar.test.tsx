@@ -1,9 +1,10 @@
-import { render, screen } from "@testing-library/react";
+import { screen } from "@testing-library/react";
 import { Sidebar } from "./Sidebar";
+import { componentRender } from "@/shared/lib/tests";
 
 describe("Sidebar", () => {
   test("Test render ", () => {
-    render(<Sidebar />);
-    expect(screen.getByTestId("test--sidebar")).toBeInTheDocument();
+    componentRender(<Sidebar />);
+    expect(screen.getByTestId("sidebar")).toBeInTheDocument();
   });
 });

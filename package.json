@@ -25,7 +25,8 @@
     "prepare": "husky install",
     "create:page": "gvegas-cfc PageComponent ./src/pages/",
     "create:ui": "gvegas-cfc UIComponent ./src/shared/UI/",
-    "create:widget": "gvegas-cfc UIComponent ./src/widgets/"
+    "create:widget": "gvegas-cfc UIComponent ./src/widgets/",
+    "create:feature": "gvegas-cfc UIComponent ./src/features/"
   },
   "devDependencies": {
     "@babel/core": "^7.21.8",

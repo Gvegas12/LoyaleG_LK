@@ -81,10 +81,7 @@ export const Sidebar: React.FC<ISidebarProps> = ({ className }) => {
   };
 
   return (
-    <div
-      data-testid="test--sidebar"
-      className={clsx(styles.Sidebar, className)}
-    >
+    <div data-testid="sidebar" className={clsx(styles.Sidebar, className)}>
       <UI.Logo />
       <div className={styles.wrapper}>
         <SidebarLinks {...mainMenuLinksData} />

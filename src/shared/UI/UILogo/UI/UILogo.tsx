@@ -11,5 +11,5 @@ export interface IUILogoProps {
 export const UILogo: React.FC<IUILogoProps> = ({ className }) => {
   useChangeSVGTheme();
 
-  return <Logo data-testid="test--uilogo" className={clsx(className)} />;
+  return <Logo className={clsx(className)} />;
 };

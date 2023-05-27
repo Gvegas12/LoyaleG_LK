@@ -39,7 +39,7 @@ export const UIThemeSwitcher: React.FC<IUIThemeSwitcherProps> = ({
 
   return (
     <UIButton
-      data-testid="test--uithemeswitcher"
+      data-testid="uithemeswitcher"
       onClick={onChangeTheme}
       className={clsx(styles.UIThemeSwitcher, className)}
     >

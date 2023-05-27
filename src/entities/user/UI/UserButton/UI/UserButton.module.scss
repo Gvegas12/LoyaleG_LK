@@ -1,0 +1,23 @@
+.UserButton {
+  display: flex;
+  align-items: center;
+  column-gap: 15px;
+
+  .welcome {
+    text-transform: uppercase;
+    font: var(--font-s);
+    color: var(--third-text-color);
+  }
+
+  .name {
+    display: flex;
+    align-items: center;
+
+    font: var(--font-m);
+    color: white;
+
+    .triangle {
+      margin-left: 5px;
+    }
+  }
+}
