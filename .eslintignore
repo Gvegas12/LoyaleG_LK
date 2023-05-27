@@ -1,0 +1,7 @@
+node_modules
+*.css
+*.svg
+public/
+.storybook/
+*.config.ts
+*.config.js

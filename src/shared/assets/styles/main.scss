@@ -1,0 +1,26 @@
+@import url("lib/reset.css");
+@import url("config/fonts.css");
+@import "variables/global";
+@import "variables/img";
+@import "themes";
+
+body {
+  font: var(--font-m);
+  color: var(--primary-text-color);
+  background: var(--primary-bg-color);
+  min-height: 100vh;
+}
+
+.container {
+  width: var(--container--width);
+  margin: 0 auto;
+}
+
+.content-page {
+  display: flex;
+}
+
+.page-wrapper {
+  flex-grow: 1;
+  padding: 20px;
+}

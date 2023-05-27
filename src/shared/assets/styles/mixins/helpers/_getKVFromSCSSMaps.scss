@@ -1,0 +1,5 @@
+@mixin get-KeyValue-from-SCSS-Maps($array) {
+  @each $key, $color in $array {
+    #{$key}: $color;
+  }
+}

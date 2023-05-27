@@ -1,0 +1,35 @@
+.UITooltip {
+  position: absolute;
+  z-index: 1;
+
+  border-radius: 5px;
+  background: var(--background-gradient);
+  color: white;
+
+  .triangle {
+    $triangle---width: 12px;
+
+    top: -$triangle---width;
+    border-width: calc($triangle---width / 2);
+
+    position: absolute;
+    z-index: 1;
+
+    border-style: solid;
+    border-color: transparent transparent rgba(0, 0, 0, 0.7) transparent;
+    transform: translateX(-50%);
+  }
+}
+.static {
+  top: 100%;
+  right: -1vw;
+  padding: 22px 26px;
+  padding-right: 50px;
+
+  .triangle {
+    left: 85%;
+    z-index: 1;
+  }
+}
+// .hover {
+// } // TODO
