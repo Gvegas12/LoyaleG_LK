@@ -9,6 +9,8 @@ import { UITooltip as Tooltip } from "./UITooltip";
 import { UITriangle as Triangle } from "./UITriangle";
 import { UIThemeSwitcher as ThemeSwitcher } from "./UIThemeSwitcher";
 
+import StatisticsCard from "./UIStatisticsCard";
+
 export default {
   Box,
   Logo,
@@ -20,4 +22,5 @@ export default {
   Tooltip,
   Triangle,
   ThemeSwitcher,
+  StatisticsCard,
 };

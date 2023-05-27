@@ -1,7 +1,8 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
+import { Statistics } from "@/features/Statistics";
 
-import UI from "@/shared/UI";
+import styles from "./MainPage.module.scss";
 
 const MainPage: React.FC = () => {
   const { t } = useTranslation("main");
@@ -13,8 +14,8 @@ const MainPage: React.FC = () => {
   };
 
   return (
-    <div>
-      <div>{t("Главная страница")}</div>
+    <div className={styles.MainPage}>
+      <Statistics />
     </div>
   );
 };

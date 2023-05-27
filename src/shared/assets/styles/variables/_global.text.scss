@@ -1,6 +1,6 @@
 $global-text: (
   --font--family-main: (
-    Inter,
+    "Inter",
     sans-serif,
   ),
   // --------- text-s ↴ ----------
@@ -15,11 +15,6 @@ $global-text: (
   --font-size-l: 20px,
   --font-line-l: 28px,
   --font-l: var(--font-size-l) / var(--font-line-l) var(--font--family-main),
-  // --------- title-s ↴ ----------
-  --font-size-title-s: 20px,
-  --font-line-title-s: 28px,
-  --font-title-s: var(--font-size-title-s) / var(--font-line-title-s)
-    var(--font--family-main),
   // --------- title-m ↴ ----------
   --font-size-title-m: 32px,
   --font-line-title-m: 40px,
