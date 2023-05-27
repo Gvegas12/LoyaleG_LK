@@ -4,7 +4,6 @@ import clsx from "clsx";
 import StatisticsCard from "@/shared/UI/UIStatisticsCard";
 
 import styles from "./Statistics.module.scss";
-import UI from "@/shared/UI";
 
 export interface IStatisticsProps {
   className?: string;

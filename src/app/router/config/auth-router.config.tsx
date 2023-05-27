@@ -4,6 +4,7 @@ import { AuthRoutesEnum, authRoutePaths } from "@/shared/config/routes";
 
 import MainPage from "@/pages/MainPage";
 import SigninPage from "@/pages/SigninPage";
+import Telegram from "@/pages/Telegram";
 
 export const authRouteConfig: Record<AuthRoutesEnum, RouteProps> = {
   [AuthRoutesEnum.HOME]: {
@@ -36,7 +37,7 @@ export const authRouteConfig: Record<AuthRoutesEnum, RouteProps> = {
   },
   [AuthRoutesEnum.TELEGRAM]: {
     path: authRoutePaths.telegram,
-    element: <SigninPage />,
+    element: <Telegram />,
   },
   [AuthRoutesEnum.ABOUT]: {
     path: authRoutePaths.about,

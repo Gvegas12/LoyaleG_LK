@@ -12,7 +12,7 @@ export function buildCSSLoader(isDev: boolean): RuleSetRule {
           modules: {
             auto: (resPath: string): boolean =>
               Boolean(resPath.includes(".module.")),
-            localIdentName: "[local]--[hash:base64:5]",
+            localIdentName: "[name]_[local]--[hash:base64:5]",
           },
         },
       },
