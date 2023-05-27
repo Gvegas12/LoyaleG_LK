@@ -14,7 +14,7 @@ const MainPage: React.FC = () => {
   };
 
   return (
-    <div className={styles.MainPage}>
+    <div className="page-mt">
       <Statistics />
     </div>
   );

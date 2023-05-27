@@ -1,0 +1,27 @@
+@import "../../variables";
+
+.TelegramChatInputPanel {
+  display: flex;
+  align-items: center;
+  padding: 10px 40px;
+
+  column-gap: 30px;
+  background-color: var(--translucent-bg-color-7);
+}
+
+.textarea {
+  @extend %TextareaTextStyles;
+
+  border-radius: 6px;
+  min-height: 60px;
+  max-height: 50vh;
+  overflow-y: auto;
+  width: 85%;
+  resize: none;
+  border: none;
+  background-color: var(--translucent-bg-color-8);
+
+  &::-webkit-scrollbar {
+    width: 0;
+  }
+}

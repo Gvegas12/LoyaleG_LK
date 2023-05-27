@@ -1,0 +1,57 @@
+.TelegramChatItem {
+  position: relative;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  column-gap: 10px;
+
+  $ptb: 8px;
+  padding: $ptb 20px;
+
+  transition: background 0.3s;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.1);
+  }
+
+  .avatar,
+  .mockAvatar {
+    min-width: 50px;
+    min-height: 50px;
+    border-radius: 100%;
+  }
+
+  .mockAvatar {
+    background-color: var(--primary-color);
+  }
+
+  .time {
+    position: absolute;
+    right: $ptb;
+    bottom: $ptb;
+    font-size: 10px;
+  }
+
+  .name {
+    color: var(--primary-color);
+    margin-bottom: -8px;
+  }
+  .place {
+    font-size: 8px;
+    color: var(--lightgray);
+  }
+  .lastMessage {
+    display: block;
+    max-width: 80%;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    /* IE 6+, Opera 11+, Chrome 1+, Safari 1.3+, Firefox 7+ */
+    text-overflow: ellipsis;
+    /* IE 8    */
+    -ms-text-overflow: ellipsis;
+    /* Opera 9 */
+    -o-text-overflow: ellipsis;
+  }
+}

@@ -2,6 +2,8 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  padding: var(--page-wrapper-padding-top) 0;
+  height: var(--navbar-height);
   .pageName {
     font: var(--font-title-m);
     font-weight: bold;
