@@ -8,8 +8,5 @@ export interface IFooterProps {
 }
 
 export const Footer: React.FC<IFooterProps> = ({ className }) => (
-  <footer
-    data-testid="test--footer"
-    className={clsx(styles.Footer, className)}
-  />
+  <footer data-testid="footer" className={clsx(styles.Footer, className)} />
 );

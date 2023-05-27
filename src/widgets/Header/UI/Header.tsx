@@ -8,5 +8,5 @@ export interface IHeaderProps {
 }
 
 export const Header: React.FC<IHeaderProps> = ({ className }) => (
-  <div data-testid="test--header" className={clsx(styles.Header, className)} />
+  <div data-testid="header" className={clsx(styles.Header, className)} />
 );

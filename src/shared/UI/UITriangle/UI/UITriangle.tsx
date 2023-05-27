@@ -9,7 +9,7 @@ export interface IUITriangleProps {
 
 export const UITriangle: React.FC<IUITriangleProps> = ({ className }) => (
   <div
-    data-testid="test--uitriangle"
+    data-testid="uitriangle"
     className={clsx(styles.UITriangle, className)}
   />
 );
