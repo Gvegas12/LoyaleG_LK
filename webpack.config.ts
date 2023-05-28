@@ -13,6 +13,7 @@ export default (env: BuildEnv) => {
     build: path.resolve(__dirname, "build"),
     html: path.resolve(__dirname, "public", "index.html"),
     src: path.resolve(__dirname, "src"),
+    favicon: path.resolve(__dirname, "public", "favicon.ico"),
   };
 
   const mode: BuildMode = env.mode || "development";

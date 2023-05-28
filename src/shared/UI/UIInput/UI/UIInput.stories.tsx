@@ -15,6 +15,4 @@ const StorybookComponent: ComponentStory<typeof UIInput> = (args) => (
 );
 
 export const Primary = StorybookComponent.bind({});
-Primary.args = {
-  children: "Text",
-} as IUIInputProps;
+Primary.args = {} as IUIInputProps;

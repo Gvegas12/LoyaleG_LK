@@ -1,2 +1,41 @@
 .UISelect {
+  width: 284px;
+
+  .wrapper {
+    $br: 4px;
+
+    position: relative;
+    .viewValue {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: var(--translucent-bg-color-2);
+
+      border-radius: $br;
+    }
+    .viewValue.active {
+      border-radius: $br $br 0 0;
+    }
+
+    .viewValue,
+    .option {
+      width: 100%;
+      cursor: pointer;
+      padding: 11px 15px;
+      color: var(--primary-text-color);
+    }
+
+    .options {
+      width: 100%;
+      position: absolute;
+      background: var(--translucent-bg-color-8);
+      border-radius: 0 0 $br $br;
+
+      .option {
+        &:hover {
+          outline: 1px solid var(--primary-color);
+        }
+      }
+    }
+  }
 }

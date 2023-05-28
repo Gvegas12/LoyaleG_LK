@@ -40,6 +40,8 @@ export const UIThemeSwitcher: React.FC<IUIThemeSwitcherProps> = ({
   return (
     <UIButton
       data-testid="uithemeswitcher"
+      theme="clear"
+      size="fullwidth"
       onClick={onChangeTheme}
       className={clsx(styles.UIThemeSwitcher, className)}
     >

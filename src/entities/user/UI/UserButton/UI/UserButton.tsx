@@ -20,10 +20,10 @@ export const UserButton: React.FC<IUserButtonProps> = ({ className }) => {
       <div>
         <p className={styles.welcome}>Добро пожаловать</p>
         <button className={styles.showBtn}>
-          <p className={styles.name}>
+          <div className={styles.name}>
             <span>Daniel Estasmos</span>
             <UI.Triangle className={styles.triangle} />
-          </p>
+          </div>
         </button>
       </div>
     </div>

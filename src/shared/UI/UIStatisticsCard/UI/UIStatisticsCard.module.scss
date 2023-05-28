@@ -1,17 +1,26 @@
 $mb: 15px;
+$hoverColor: black;
 @mixin m_transition($prop) {
   transition: $prop 0.3s;
 }
 
-.UIStatisticsCard {
+.UIStatisticsCard,
+.addNew {
   width: 350px;
   min-height: 200px;
-  padding: 25px;
   border-radius: 12px;
   box-shadow: inset 5px 5px 10px rgba(0, 0, 0, 0.25);
   background-color: var(--primary-bg-color);
 
   @include m_transition(background-color);
+
+  &:hover {
+    background-color: var(--primary-color);
+  }
+}
+
+.UIStatisticsCard {
+  padding: 25px;
 
   .header {
     display: flex;
@@ -26,9 +35,6 @@ $mb: 15px;
   }
 
   &:hover {
-    background-color: var(--primary-color);
-    $hoverColor: black;
-
     .header {
       .title {
         color: $hoverColor;
@@ -45,6 +51,30 @@ $mb: 15px;
     .swapIcon {
       path {
         fill: $hoverColor;
+      }
+    }
+  }
+}
+
+.addNew {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .plus {
+    display: block;
+    width: 35%;
+    height: 35%;
+
+    path {
+      @include m_transition(stroke);
+    }
+  }
+
+  &:hover {
+    .plus {
+      path {
+        stroke: $hoverColor;
       }
     }
   }

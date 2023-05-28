@@ -1,9 +1,16 @@
 import { render, screen } from "@testing-library/react";
-import { UISelect } from "./UISelect";
+import { UISelect, UISelectOptionType } from "./UISelect";
 
 describe("UISelect", () => {
   test("Test render ", () => {
-    render(<UISelect>Test</UISelect>);
-    expect(screen.getByText("Test")).toBeInTheDocument();
+    const options: UISelectOptionType[] = [
+      {
+        id: 1,
+        text: "test",
+      },
+    ];
+
+    render(<UISelect options={options} />);
+    expect(screen.getByTestId("uiselect")).toBeInTheDocument();
   });
 });

@@ -8,6 +8,7 @@ body {
   color: var(--primary-text-color);
   background: var(--primary-bg-color);
   min-height: 100vh;
+  overflow: hidden;
 }
 
 .container {
@@ -28,4 +29,12 @@ body {
 
 .page-mt {
   margin-top: var(--page-margin-top);
+}
+
+.focus--primary {
+  &:focus,
+  &:focus-visible,
+  &:active {
+    outline: 1px solid var(--primary-color);
+  }
 }

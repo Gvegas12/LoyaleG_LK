@@ -1,0 +1,22 @@
+.UILabel {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 8px;
+  margin-left: 6px;
+
+  .btn {
+    cursor: pointer;
+    text-decoration: underline;
+    background-color: transparent;
+  }
+
+  .labelText {
+    display: flex;
+    color: var(--lightgray);
+    .asterisk {
+      margin-left: 5px;
+      color: var(--red);
+    }
+  }
+}

@@ -3,11 +3,17 @@ import clsx from "clsx";
 
 import styles from "./UIBox.module.scss";
 
-export interface IUIBoxProps {
+export interface IUIBoxProps extends React.HTMLProps<HTMLDivElement> {
   children: React.ReactNode;
   className?: string;
 }
 
-export const UIBox: React.FC<IUIBoxProps> = ({ className, children }) => (
-  <div className={clsx(styles.UIBox, className)}>{children}</div>
+export const UIBox: React.FC<IUIBoxProps> = ({
+  className,
+  children,
+  ...props
+}) => (
+  <div {...props} className={clsx(styles.UIBox, className)}>
+    {children}
+  </div>
 );

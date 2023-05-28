@@ -1,0 +1,57 @@
+.AddEstablishment {
+  padding: 35px;
+  display: flex;
+  justify-content: space-between;
+  column-gap: 50px;
+
+  .title {
+    font: var(--font-l);
+  }
+
+  .form {
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+
+    .title {
+      margin-top: 10px;
+    }
+  }
+
+  .uploadImg {
+    flex-grow: 1;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    .title {
+      font: var(--font-m);
+      margin-bottom: 10px;
+    }
+
+    &BtnMain {
+      width: 100%;
+      height: 300px;
+      margin-bottom: 20px;
+    }
+    &BtnSmall {
+      display: grid;
+      align-items: center;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      column-gap: 20px;
+
+      .uploadImgBtnSmallElement {
+        min-height: 150px;
+        width: auto;
+      }
+    }
+
+    .btns {
+      display: flex;
+      align-items: center;
+      column-gap: 20px;
+      align-self: flex-end;
+    }
+  }
+}
