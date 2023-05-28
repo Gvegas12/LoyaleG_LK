@@ -8,6 +8,7 @@ body {
   color: var(--primary-text-color);
   background: var(--primary-bg-color);
   min-height: 100vh;
+  overflow: hidden;
 }
 
 .container {

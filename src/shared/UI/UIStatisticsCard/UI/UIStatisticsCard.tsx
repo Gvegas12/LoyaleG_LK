@@ -31,6 +31,7 @@ const UIStatisticsCardFilterChildren: React.FC<
 
 export interface IUIStatisticsCardProps {
   addNew?: boolean;
+  showIcon?: boolean;
   icon?: React.ReactSVGElement;
   title?: string;
   pointer?: boolean;
@@ -41,35 +42,38 @@ export interface IUIStatisticsCardProps {
 
 const UIStatisticsCard: React.FC<IUIStatisticsCardProps> = ({
   addNew,
+  showIcon = true,
   icon,
   title,
   pointer = true,
   children,
   className,
   onClick,
-}) => (
-  <div
-    data-testid="statisticsCard"
-    onClick={onClick}
-    className={clsx(
-      addNew ? styles.addNew : styles.UIStatisticsCard,
-      pointer && styles.pointer,
-      className
-    )}
-  >
-    {!addNew ? (
-      <>
-        <div className={styles.header}>
-          <p className={styles.title}>{title}</p>
-          {icon}
-        </div>
-        {children}
-      </>
-    ) : (
-      <PlusIcon className={styles.plus} />
-    )}
-  </div>
-);
+}) => {
+  return (
+    <div
+      data-testid="statisticsCard"
+      onClick={onClick}
+      className={clsx(
+        addNew ? styles.addNew : styles.UIStatisticsCard,
+        pointer && styles.pointer,
+        className
+      )}
+    >
+      {addNew ? (
+        showIcon && <PlusIcon className={styles.plus} />
+      ) : (
+        <>
+          <div className={styles.header}>
+            <p className={styles.title}>{title}</p>
+            {icon}
+          </div>
+          {children}
+        </>
+      )}
+    </div>
+  );
+};
 
 export {
   UIStatisticsCard as Body,

@@ -10,7 +10,7 @@ const EstablishmentsPage: React.FC = () => {
   };
 
   if (addNew) {
-    return <AddEstablishment />;
+    return <AddEstablishment onClose={() => setAddNew(false)} />;
   }
 
   return (
