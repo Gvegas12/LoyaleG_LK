@@ -1,0 +1,17 @@
+.SettingsPage {
+  display: flex;
+  flex-direction: column;
+  row-gap: 20px;
+
+  padding: var(--page-wrapper-padding);
+
+  .field {
+    display: flex;
+    align-items: flex-end;
+    column-gap: 15px;
+  }
+
+  .changePasswordBtn {
+    margin-top: 30px;
+  }
+}

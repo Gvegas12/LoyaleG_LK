@@ -6,6 +6,8 @@ import MainPage from "@/pages/MainPage";
 import SigninPage from "@/pages/SigninPage";
 import Telegram from "@/pages/Telegram";
 import EstablishmentsPage from "@/pages/EstablishmentsPage";
+import CustomersPage from "@/pages/CustomersPage";
+import SettingsPage from "@/pages/SettingsPage";
 
 export const authRouteConfig: Record<AuthRoutesEnum, RouteProps> = {
   [AuthRoutesEnum.HOME]: {
@@ -18,7 +20,7 @@ export const authRouteConfig: Record<AuthRoutesEnum, RouteProps> = {
   },
   [AuthRoutesEnum.CUSTOMERS]: {
     path: authRoutePaths.customers,
-    element: <SigninPage />,
+    element: <CustomersPage />,
   },
   [AuthRoutesEnum.ESTABLISHMENTS]: {
     path: authRoutePaths.establishments,
@@ -30,7 +32,7 @@ export const authRouteConfig: Record<AuthRoutesEnum, RouteProps> = {
   },
   [AuthRoutesEnum.SETTINGS]: {
     path: authRoutePaths.settings,
-    element: <SigninPage />,
+    element: <SettingsPage />,
   },
   [AuthRoutesEnum.SUPPORT]: {
     path: authRoutePaths.support,
