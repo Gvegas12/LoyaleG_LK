@@ -3,6 +3,7 @@ import React from "react";
 import clsx from "clsx";
 
 import styles from "./UIInput.module.scss";
+import { IUILabelProps, UILabel } from "../../UILabel";
 
 type HTMLInputProps = Omit<
   React.InputHTMLAttributes<HTMLInputElement>,
@@ -16,10 +17,7 @@ export interface IUIInputProps extends HTMLInputProps {
   className?: string;
   fullwidth?: boolean;
   inputClassName?: string;
-  label?: string;
-  labelClassName?: string;
-  labelButton?: string;
-  labelButtonOnClick?: (e: React.MouseEvent<HTMLButtonElement>) => void;
+  label?: IUILabelProps;
 }
 
 export const UIInput: React.FC<IUIInputProps> = ({
@@ -30,18 +28,10 @@ export const UIInput: React.FC<IUIInputProps> = ({
   fullwidth,
   inputClassName,
   label,
-  labelClassName,
-  labelButton,
-  labelButtonOnClick,
   ...props
 }) => {
   const onChangeHandler = (e: React.ChangeEvent<HTMLInputElement>): void => {
     onChange?.(e.target.value);
-  };
-
-  const onLabelButtonClick = (e: React.MouseEvent<HTMLButtonElement>): void => {
-    e.preventDefault();
-    if (labelButtonOnClick) labelButtonOnClick(e);
   };
 
   return (
@@ -49,22 +39,12 @@ export const UIInput: React.FC<IUIInputProps> = ({
       style={{ width: fullwidth ? "100%" : "" }}
       className={clsx(styles.UIInput, className)}
     >
-      <label className={clsx(styles.label, "label", labelClassName)}>
-        <div className={styles.labelName}>
-          <span>{label}</span>
-          {required && <span className={styles.asterisk}>*</span>}
-        </div>
-        {labelButton && (
-          <button onClick={onLabelButtonClick} className={styles.labelBtn}>
-            {labelButton}
-          </button>
-        )}
-      </label>
+      {label && <UILabel {...label} />}
       <input
         data-testid="uiinput"
         value={value}
         onChange={onChangeHandler}
-        className={clsx(styles.input, inputClassName)}
+        className={clsx(styles.input, "focus--primary", inputClassName)}
         {...props}
       />
     </div>

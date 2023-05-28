@@ -96,7 +96,13 @@ module.exports = {
     "@typescript-eslint/quotes": ["error", "double"],
     "@typescript-eslint/no-non-null-assertion": "off",
     "@typescript-eslint/no-use-before-define": ["error"],
-    "@typescript-eslint/explicit-function-return-type": "warn",
+    "@typescript-eslint/explicit-function-return-type": [
+      "warn",
+      {
+        ignoreAttribute: ["onClick"],
+        markupOnly: true,
+      },
+    ],
     /* import */
     "import/extensions": [
       "off",

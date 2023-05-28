@@ -29,3 +29,11 @@ body {
 .page-mt {
   margin-top: var(--page-margin-top);
 }
+
+.focus--primary {
+  &:focus,
+  &:focus-visible,
+  &:active {
+    outline: 1px solid var(--primary-color);
+  }
+}

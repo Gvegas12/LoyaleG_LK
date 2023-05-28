@@ -1,1 +1,1 @@
-export { UISelect } from "./UI/UISelect";
+export { UISelect, UISelectOptionType } from "./UI/UISelect";

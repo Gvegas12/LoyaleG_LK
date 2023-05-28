@@ -8,6 +8,6 @@
   border-top: 6px solid var(--primary-color);
   transition: transform 0.3s;
 }
-.UITriangle--active {
-  transform: rotate(180deg);
+.UITriangle.active {
+  transform: rotate(-180deg);
 }
