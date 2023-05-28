@@ -1,5 +1,5 @@
 .AddEstablishment {
-  padding: 35px;
+  padding: var(--page-wrapper-padding);
   display: flex;
   justify-content: space-between;
   column-gap: 50px;

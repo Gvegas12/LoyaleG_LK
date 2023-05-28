@@ -13,11 +13,7 @@ const MainPage: React.FC = () => {
     setValue(val);
   };
 
-  return (
-    <div className="page-mt">
-      <Statistics />
-    </div>
-  );
+  return <Statistics />;
 };
 
 export default MainPage;

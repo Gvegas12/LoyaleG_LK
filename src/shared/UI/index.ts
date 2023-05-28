@@ -1,5 +1,6 @@
 import { UIBox as Box } from "./UIBox";
 import { UILogo as Logo } from "./UILogo";
+import { UITable as Table } from "./UITable";
 import { UIInput as Input } from "./UIInput";
 import { UIModal as Modal } from "./UIModal";
 import { UIPortal as Portal } from "./UIPortal";
@@ -14,6 +15,7 @@ import StatisticsCard from "./UIStatisticsCard";
 export default {
   Box,
   Logo,
+  Table,
   Input,
   Modal,
   Portal,

@@ -22,13 +22,9 @@ body {
 
 .page-wrapper {
   flex-grow: 1;
-  padding: var(--page-wrapper-padding-top);
+  padding: var(--page-wrapper-padding);
   padding-top: 0;
   background-color: var(--secondary-bg-color);
-}
-
-.page-mt {
-  margin-top: var(--page-margin-top);
 }
 
 .focus--primary {

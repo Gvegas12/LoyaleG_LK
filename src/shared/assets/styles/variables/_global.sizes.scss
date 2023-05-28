@@ -5,10 +5,9 @@ $global-sizes: (
   --sidebar-width: 300px,
   --sidebar-padding: 30px,
   // Page
-  --page-margin-top: 30px,
-  --page-wrapper-padding-top: 30px,
+  --page-wrapper-padding: 30px,
   // Navbar
-  --navbar-height: calc(40px + var(--page-wrapper-padding-top)),
+  --navbar-height: calc(40px + var(--page-wrapper-padding)),
   // Logo
   --logo-height: 60px
 );

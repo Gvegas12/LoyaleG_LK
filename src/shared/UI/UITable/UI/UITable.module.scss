@@ -1,0 +1,15 @@
+.UITable {
+  $br: 15px;
+  border-radius: $br;
+  height: calc(95vh - var(--navbar-height));
+  background: var(--translucent-bg-color-2);
+  .thead {
+    border-bottom: 1px solid black;
+  }
+  .tr {
+    padding: 10px 0;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    text-align: center;
+  }
+}
