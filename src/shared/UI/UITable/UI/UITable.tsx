@@ -1,28 +1,27 @@
 import React from "react";
 import clsx from "clsx";
 
-import styles from "./UITable.module.scss";
-import { useUITableOmit } from "./hooks/useUITableOmit";
+import UITableTbody from "./components/UITableTbody";
+
 import { getTheadKeys } from "./helpers/getTheadKeys";
-import type { IUITableProps, OnClickEventArgs, TableData } from "../types";
+import { useUITableTheadOmit } from "./hooks/useUITableTheadOmit";
+import type { IUITableProps, TableData } from "../types";
+
+import styles from "./UITable.module.scss";
 
 export const UITable: React.FC<IUITableProps> = ({
   omit,
   className,
   thead,
   tbody,
-  onClickTD,
+  onClickTd,
 }) => {
   const [tableData, setTableData] = React.useState<TableData>({
     tbody,
     thead: thead || getTheadKeys(tbody),
   });
 
-  const onClickTDHandler = (args: OnClickEventArgs<object>): void => {
-    onClickTD(args);
-  };
-
-  useUITableOmit({ omit, setTableData });
+  useUITableTheadOmit({ omit, setTableData });
 
   return (
     <div data-testid="uitable" className={clsx(styles.UITable, className)}>
@@ -37,20 +36,11 @@ export const UITable: React.FC<IUITableProps> = ({
         ))}
       </div>
       <div className={styles.tbody}>
-        {tableData.tbody.map((item, index) => (
-          <div key={index} className={styles.tr}>
-            {Object.values(item).map((v, i) => (
-              <div
-                onClick={(event): void =>
-                  onClickTDHandler({ event, selectedItemData: item })
-                }
-                key={i}
-              >
-                {v}
-              </div>
-            ))}
-          </div>
-        ))}
+        <UITableTbody
+          tbody={tableData.tbody}
+          omit={omit}
+          onClickTd={(args): void => onClickTd(args)}
+        />
       </div>
     </div>
   );

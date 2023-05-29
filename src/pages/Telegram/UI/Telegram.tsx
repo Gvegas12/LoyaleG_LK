@@ -1,5 +1,6 @@
 import React from "react";
-import { TelegramChat } from "@/features/TelegramChat";
+
+import { TelegramChat } from "@/entities/telegram";
 
 const Telegram: React.FC = () => (
   <div>

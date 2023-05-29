@@ -6,14 +6,14 @@ export type OnClickTDEvent<T> = {
   event: (args: OnClickEventArgs<T>) => void;
 };
 
-export type TbodyType = object;
-export type TheadType = string;
+export type TdType = object;
+export type ThType = string;
 
 export interface IUITableProps {
   omit?: string[];
   className?: string;
-  thead?: TheadType[];
-  tbody: TbodyType[];
-  onClickTD?: OnClickTDEvent<TbodyType>["event"];
+  thead?: ThType[];
+  tbody: TdType[];
+  onClickTd?: OnClickTDEvent<TdType>["event"];
 }
 export type TableData = Pick<IUITableProps, "thead" | "tbody">;

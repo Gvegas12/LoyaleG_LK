@@ -16,9 +16,22 @@ export function buildLoaders({ isDev }: BuildOptions): Array<RuleSetRule> {
     use: ["@svgr/webpack"],
   };
 
-  const fileLoader: RuleSetRule = {
-    test: /\.(png|jpe?g|gif|woff|woff2|eot|ttf|otf)$/i,
+  const fontsLoader: RuleSetRule = {
+    test: /\.(woff|woff2|eot|ttf|otf)$/i,
     type: "asset/resource",
+    generator: {
+      outputPath: "fonts/",
+      publicPath: "fonts/",
+    },
+  };
+
+  const fileLoader: RuleSetRule = {
+    test: /\.(png|jpe?g|gif)$/i,
+    type: "asset/resource",
+    generator: {
+      outputPath: "img/",
+      publicPath: "img/",
+    },
   };
 
   const babelLoader: RuleSetRule = {
@@ -42,5 +55,12 @@ export function buildLoaders({ isDev }: BuildOptions): Array<RuleSetRule> {
     },
   };
 
-  return [fileLoader, svgLoader, babelLoader, typescriptLoader, cssLoader];
+  return [
+    fileLoader,
+    fontsLoader,
+    svgLoader,
+    babelLoader,
+    typescriptLoader,
+    cssLoader,
+  ];
 }

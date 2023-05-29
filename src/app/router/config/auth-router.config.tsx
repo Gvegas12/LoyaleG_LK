@@ -7,6 +7,7 @@ import SigninPage from "@/pages/SigninPage";
 import Telegram from "@/pages/Telegram";
 import EstablishmentsPage from "@/pages/EstablishmentsPage";
 import CustomersPage from "@/pages/CustomersPage";
+import CustomerPage from "@/pages/CustomerPage";
 import SettingsPage from "@/pages/SettingsPage";
 
 export const authRouteConfig: Record<AuthRoutesEnum, RouteProps> = {
@@ -16,7 +17,7 @@ export const authRouteConfig: Record<AuthRoutesEnum, RouteProps> = {
   },
   [AuthRoutesEnum.CUSTOMER]: {
     path: authRoutePaths.customer,
-    element: <SigninPage />,
+    element: <CustomerPage />,
   },
   [AuthRoutesEnum.CUSTOMERS]: {
     path: authRoutePaths.customers,

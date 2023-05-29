@@ -1,7 +1,7 @@
 import React from "react";
 import clsx from "clsx";
 
-import UserButton from "@/entities/user";
+import { UserButton } from "@/entities/user";
 import { useNavbarTitle } from "@/shared/providers/NavbarProvider";
 
 import styles from "./Navbar.module.scss";

@@ -20,14 +20,13 @@ export const SidebarLink: React.FC<ISidebarLinkProps> = ({
   link,
 }) => {
   useChangeSVGTheme();
+
   const { setTitle } = useNavbarTitle();
   const match = useMatch(link.to);
 
   React.useEffect(() => {
-    if (match?.pathname) {
-      if (link.to === match.pathname) {
-        setTitle(link.text);
-      }
+    if (match?.pathname && link.to === match.pathname) {
+      setTitle(link.text);
     }
   }, [link.text, link.to, match?.pathname, setTitle]);
 

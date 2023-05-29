@@ -1,6 +1,7 @@
 import React from "react";
+
 import StatisticsCard from "@/shared/UI/UIStatisticsCard";
-import { AddEstablishment } from "@/features/AddEstablishment";
+import { AddEstablishment } from "@/entities/establishment";
 
 import styles from "./EstablishmentsPage.module.scss";
 

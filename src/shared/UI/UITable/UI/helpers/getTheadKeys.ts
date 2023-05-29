@@ -1,6 +1,6 @@
-import type { TbodyType, TheadType } from "../../types";
+import type { TdType, ThType } from "../../types";
 
-export const getTheadKeys = (tbody: TbodyType[]): TheadType[] => {
+export const getTheadKeys = (tbody: TdType[]): ThType[] => {
   const result: string[] = [];
   const set = new Set<string>();
 

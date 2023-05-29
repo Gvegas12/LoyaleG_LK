@@ -13,7 +13,6 @@ type HTMLInputProps = Omit<
 export interface IUIInputProps extends HTMLInputProps {
   value?: string;
   onChange?: (value: string) => void;
-  required?: boolean;
   className?: string;
   fullwidth?: boolean;
   inputClassName?: string;
@@ -23,7 +22,6 @@ export interface IUIInputProps extends HTMLInputProps {
 export const UIInput: React.FC<IUIInputProps> = ({
   value,
   onChange,
-  required,
   className,
   fullwidth,
   inputClassName,
