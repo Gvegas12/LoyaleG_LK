@@ -1,17 +1,18 @@
 import React from "react";
 import UI from "@/shared/UI";
+import { OnClickEventArgs } from "@/shared/UI/UITable";
 
-// const thead = [
-//   "Name",
-//   "Telegram",
-//   "Phone",
-//   "B-day",
-//   "Current cups",
-//   "Cups for given",
-// ];
-
+type DataItemType = {
+  name: string;
+  telegram: string;
+  phone: string;
+  "b-day": string;
+  "current cups": number;
+  "cups for given": number;
+};
 const data = [
   {
+    id: 1,
     name: "Jack",
     telegram: "t.me@jackkk",
     phone: "888888888",
@@ -20,6 +21,7 @@ const data = [
     "cups for given": 3,
   },
   {
+    id: 2,
     name: "Jack",
     telegram: "t.me@jackkk",
     phone: "888888888",
@@ -28,6 +30,7 @@ const data = [
     "cups for given": 3,
   },
   {
+    id: 3,
     name: "Jack",
     telegram: "t.me@jackkk",
     phone: "888888888",
@@ -36,6 +39,7 @@ const data = [
     "cups for given": 3,
   },
   {
+    id: 4,
     name: "Jack",
     telegram: "t.me@jackkk",
     phone: "888888888",
@@ -44,6 +48,7 @@ const data = [
     "cups for given": 3,
   },
   {
+    id: 5,
     name: "Jack",
     telegram: "t.me@jackkk",
     phone: "888888888",
@@ -53,10 +58,16 @@ const data = [
   },
 ];
 
-const CustomersPage: React.FC = () => (
-  <div>
-    <UI.Table tbody={data} />
-  </div>
-);
+const CustomersPage: React.FC = () => {
+  const onClickHandler = (args: OnClickEventArgs<DataItemType>): void => {
+    console.log(args);
+  };
+
+  return (
+    <div>
+      <UI.Table onClickTD={onClickHandler} tbody={data} omit={["id"]} />
+    </div>
+  );
+};
 
 export default CustomersPage;

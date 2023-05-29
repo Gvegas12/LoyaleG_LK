@@ -44,6 +44,8 @@ module.exports = {
     "no-return-assign": "off",
     "no-param-reassign": "off",
     "operator-linebreak": "off",
+    "consistent-return": ["off"],
+    "array-callback-return": ["off"],
     "no-use-before-define": "off",
     quotes: ["error", "double"],
     "implicit-arrow-linebreak": "off",

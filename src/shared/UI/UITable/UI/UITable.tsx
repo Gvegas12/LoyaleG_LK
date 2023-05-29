@@ -2,34 +2,32 @@ import React from "react";
 import clsx from "clsx";
 
 import styles from "./UITable.module.scss";
-
-const getTheadKeys = (tbody: object[]): string[] => {
-  const result: string[] = [];
-  const set = new Set<string>();
-
-  tbody.map((item) => Object.keys(item).map((k) => set.add(k)));
-  set.forEach((item) => result.push(item));
-
-  return result;
-};
-
-export interface IUITableProps {
-  className?: string;
-  thead?: string[];
-  tbody: object[];
-}
+import { useUITableOmit } from "./hooks/useUITableOmit";
+import { getTheadKeys } from "./helpers/getTheadKeys";
+import type { IUITableProps, OnClickEventArgs, TableData } from "../types";
 
 export const UITable: React.FC<IUITableProps> = ({
+  omit,
   className,
   thead,
   tbody,
+  onClickTD,
 }) => {
-  const theadResult: string[] = thead || getTheadKeys(tbody);
+  const [tableData, setTableData] = React.useState<TableData>({
+    tbody,
+    thead: thead || getTheadKeys(tbody),
+  });
+
+  const onClickTDHandler = (args: OnClickEventArgs<object>): void => {
+    onClickTD(args);
+  };
+
+  useUITableOmit({ omit, setTableData });
 
   return (
     <div data-testid="uitable" className={clsx(styles.UITable, className)}>
       <div className={clsx(styles.tr, styles.thead)}>
-        {theadResult.map((k) => (
+        {tableData.thead.map((k) => (
           <div
             className={clsx(!thead && styles.firstLetterToUppercase)}
             key={k}
@@ -39,10 +37,17 @@ export const UITable: React.FC<IUITableProps> = ({
         ))}
       </div>
       <div className={styles.tbody}>
-        {tbody.map((item, index) => (
+        {tableData.tbody.map((item, index) => (
           <div key={index} className={styles.tr}>
             {Object.values(item).map((v, i) => (
-              <div key={i}>{v}</div>
+              <div
+                onClick={(event): void =>
+                  onClickTDHandler({ event, selectedItemData: item })
+                }
+                key={i}
+              >
+                {v}
+              </div>
             ))}
           </div>
         ))}

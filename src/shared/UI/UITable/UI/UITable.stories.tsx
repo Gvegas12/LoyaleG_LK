@@ -1,6 +1,7 @@
 import { ComponentStory, ComponentMeta } from "@storybook/react";
 
-import { UITable, IUITableProps } from "./UITable";
+import { UITable } from "./UITable";
+import type { IUITableProps } from "../types";
 
 export default {
   title: "shared/UITable",
