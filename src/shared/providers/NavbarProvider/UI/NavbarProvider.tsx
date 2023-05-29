@@ -9,6 +9,7 @@ interface NavbarProviderProps {
 const NavbarProvider: React.FC<NavbarProviderProps> = ({ children, value }) => {
   const [title, setTitle] = React.useState<string>(value);
 
+  // TODO why useMemo
   const defaultTitle = React.useMemo(() => ({ title, setTitle }), [title]);
 
   return (

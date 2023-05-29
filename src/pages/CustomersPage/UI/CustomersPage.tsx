@@ -1,6 +1,7 @@
 import React from "react";
+
 import UI from "@/shared/UI";
-import { OnClickEventArgs } from "@/shared/UI/UITable";
+import type { OnClickEventArgs } from "@/shared/UI/UITable";
 
 type DataItemType = {
   name: string;
@@ -10,6 +11,7 @@ type DataItemType = {
   "current cups": number;
   "cups for given": number;
 };
+
 const data = [
   {
     id: 1,
