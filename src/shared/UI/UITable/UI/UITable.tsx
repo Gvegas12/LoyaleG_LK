@@ -1,35 +1,32 @@
 import React from "react";
 import clsx from "clsx";
 
+import UITableTbody from "./components/UITableTbody";
+
+import { getTheadKeys } from "./helpers/getTheadKeys";
+import { useUITableTheadOmit } from "./hooks/useUITableTheadOmit";
+import type { IUITableProps, TableData } from "../types";
+
 import styles from "./UITable.module.scss";
 
-const getTheadKeys = (tbody: object[]): string[] => {
-  const result: string[] = [];
-  const set = new Set<string>();
-
-  tbody.map((item) => Object.keys(item).map((k) => set.add(k)));
-  set.forEach((item) => result.push(item));
-
-  return result;
-};
-
-export interface IUITableProps {
-  className?: string;
-  thead?: string[];
-  tbody: object[];
-}
-
 export const UITable: React.FC<IUITableProps> = ({
+  omit,
   className,
   thead,
   tbody,
+  onClickTd,
 }) => {
-  const theadResult: string[] = thead || getTheadKeys(tbody);
+  const [tableData, setTableData] = React.useState<TableData>({
+    tbody,
+    thead: thead || getTheadKeys(tbody),
+  });
+
+  useUITableTheadOmit({ omit, setTableData });
 
   return (
     <div data-testid="uitable" className={clsx(styles.UITable, className)}>
       <div className={clsx(styles.tr, styles.thead)}>
-        {theadResult.map((k) => (
+        {tableData.thead.map((k) => (
           <div
             className={clsx(!thead && styles.firstLetterToUppercase)}
             key={k}
@@ -39,13 +36,11 @@ export const UITable: React.FC<IUITableProps> = ({
         ))}
       </div>
       <div className={styles.tbody}>
-        {tbody.map((item, index) => (
-          <div key={index} className={styles.tr}>
-            {Object.values(item).map((v, i) => (
-              <div key={i}>{v}</div>
-            ))}
-          </div>
-        ))}
+        <UITableTbody
+          tbody={tableData.tbody}
+          omit={omit}
+          onClickTd={(args): void => onClickTd(args)}
+        />
       </div>
     </div>
   );

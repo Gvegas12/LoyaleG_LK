@@ -1,9 +1,10 @@
 import React from "react";
 import clsx from "clsx";
 
-import styles from "./Navbar.module.scss";
-import UserButton from "@/entities/user";
+import { UserButton } from "@/entities/user";
 import { useNavbarTitle } from "@/shared/providers/NavbarProvider";
+
+import styles from "./Navbar.module.scss";
 
 export interface INavbarProps {
   className?: string;

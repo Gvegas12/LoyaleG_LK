@@ -1,12 +1,7 @@
 import React from "react";
-import { NavbarContext } from "./NavbarContext";
+import { NavbarContext, NavbarContextProps } from "./NavbarContext";
 
-interface useNavbarTitleResult {
-  title: string;
-  setTitle: (title: string) => void;
-}
-
-export function useNavbarTitle(): useNavbarTitleResult {
+export function useNavbarTitle(): Required<NavbarContextProps> {
   const { title, setTitle } = React.useContext(NavbarContext);
 
   return {

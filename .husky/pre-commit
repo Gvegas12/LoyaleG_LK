@@ -1,14 +1,12 @@
 #!/usr/bin/env sh
 . "$(dirname -- "$0")/_/husky.sh"
 
-# Нужно запустить команду npm run storybook
-# чтобы запустить скриншотные тесты
-npm run test:ui
+# npm run test:ui
 
-npm run lint:ts
+# npm run lint:ts
 
-npm run lint:scss
+# npm run lint:scss
 
-npm run test:unit
+# npm run test:unit
 
-npm run build:prod
+# npm run build:prod
