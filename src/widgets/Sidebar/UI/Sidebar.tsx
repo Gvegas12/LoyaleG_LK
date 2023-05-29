@@ -32,13 +32,17 @@ export const Sidebar: React.FC<ISidebarProps> = ({ className }) => {
     data: [
       {
         IconComponent: DashboardIcon,
-        text: "Панель управления",
-        to: authRoutePaths.home,
+        link: {
+          text: "Панель управления",
+          to: authRoutePaths.home,
+        },
       },
       {
         IconComponent: TelegramIcon,
-        text: "Telegam",
-        to: authRoutePaths.telegram,
+        link: {
+          text: "Telegam",
+          to: authRoutePaths.telegram,
+        },
       },
     ],
   };
@@ -48,13 +52,17 @@ export const Sidebar: React.FC<ISidebarProps> = ({ className }) => {
     data: [
       {
         IconComponent: EstablishmentsIcon,
-        text: "Торговые точки",
-        to: authRoutePaths.establishments,
+        link: {
+          text: "Торговые точки",
+          to: authRoutePaths.establishments,
+        },
       },
       {
         IconComponent: CustomersIcon,
-        text: "Покупатели",
-        to: authRoutePaths.customers,
+        link: {
+          text: "Покупатели",
+          to: authRoutePaths.customers,
+        },
       },
     ],
   };
@@ -64,18 +72,24 @@ export const Sidebar: React.FC<ISidebarProps> = ({ className }) => {
     data: [
       {
         IconComponent: SettingsIcon,
-        text: "Настройки",
-        to: authRoutePaths.settings,
+        link: {
+          text: "Настройки",
+          to: authRoutePaths.settings,
+        },
       },
       {
         IconComponent: SupportIcon,
-        text: "Служба поддержки",
-        to: authRoutePaths.support,
+        link: {
+          text: "Служба поддержки",
+          to: authRoutePaths.support,
+        },
       },
       {
         IconComponent: AboutUsIcon,
-        text: "О нас",
-        to: authRoutePaths.about,
+        link: {
+          text: "О нас",
+          to: authRoutePaths.about,
+        },
       },
     ],
   };
