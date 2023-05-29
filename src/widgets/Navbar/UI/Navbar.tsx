@@ -3,14 +3,19 @@ import clsx from "clsx";
 
 import styles from "./Navbar.module.scss";
 import UserButton from "@/entities/user";
+import { useNavbarTitle } from "@/shared/providers/NavbarProvider";
 
 export interface INavbarProps {
   className?: string;
 }
 
-export const Navbar: React.FC<INavbarProps> = ({ className }) => (
-  <div data-testid="navbar" className={clsx(styles.Navbar, className)}>
-    <div className={styles.pageName}>Панель управления</div>
-    <UserButton />
-  </div>
-);
+export const Navbar: React.FC<INavbarProps> = ({ className }) => {
+  const { title } = useNavbarTitle();
+
+  return (
+    <div data-testid="navbar" className={clsx(styles.Navbar, className)}>
+      <div className={styles.pageName}>{title}</div>
+      <UserButton />
+    </div>
+  );
+};

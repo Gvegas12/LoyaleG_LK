@@ -1,32 +1,45 @@
 import React from "react";
-import { NavLink, Pathname } from "react-router-dom";
-
 import clsx from "clsx";
+import { NavLink, Pathname, useMatch } from "react-router-dom";
+
 import { useChangeSVGTheme } from "@/shared/hooks/useChangeSVGTheme";
+import { useNavbarTitle } from "@/shared/providers/NavbarProvider";
 
 import styles from "./SidebarLink.module.scss";
 
 export interface ISidebarLinkProps {
-  to: Pathname;
-  text: string;
+  link: {
+    to: Pathname;
+    text: string;
+  };
   IconComponent: React.FC<React.SVGProps<SVGSVGElement>>;
 }
 
 export const SidebarLink: React.FC<ISidebarLinkProps> = ({
   IconComponent,
-  text,
-  to,
+  link,
 }) => {
   useChangeSVGTheme();
+  const { setTitle } = useNavbarTitle();
+  const match = useMatch(link.to);
+
+  React.useEffect(() => {
+    if (match?.pathname) {
+      if (link.to === match.pathname) {
+        setTitle(link.text);
+      }
+    }
+  }, [link.text, link.to, match?.pathname, setTitle]);
+
   return (
     <NavLink
       className={({ isActive }): string =>
         clsx(styles.SidebarLink, isActive && styles.active)
       }
-      to={to}
+      to={link.to}
     >
       <IconComponent />
-      <p>{text}</p>
+      <p>{link.text}</p>
     </NavLink>
   );
 };
