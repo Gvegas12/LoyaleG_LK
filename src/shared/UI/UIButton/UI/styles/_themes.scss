@@ -1,0 +1,29 @@
+@mixin filledStyles($color, $bg-color) {
+  color: $bg-color;
+  background: $color;
+}
+%fill {
+  @include filledStyles(var(--btn-primary-color), var(--btn-primary-bg-color));
+}
+
+.UIButton.outline {
+  outline: 1px solid var(--primary-color);
+  color: var(--primary-color);
+
+  transition-property: color, background;
+  transition-duration: 0.3s;
+
+  &:hover {
+    @extend %fill;
+  }
+}
+
+.UIButton.fill {
+  @extend %fill;
+}
+
+.UIButton.clear {
+  background: none;
+  padding: 0;
+  margin: 0;
+}

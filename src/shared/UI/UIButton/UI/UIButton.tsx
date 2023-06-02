@@ -2,15 +2,20 @@ import React from "react";
 import clsx from "clsx";
 
 import styles from "./UIButton.module.scss";
+import { UITriangle } from "../../UITriangle";
 
-type ButtomThemeType = "outline" | "fill" | "clear";
-type ButtomSizeType = "small" | "medium" | "large" | "fullwidth";
+type ButtonThemeType = "outline" | "fill" | "clear";
+type ButtonSizeType = "small" | "medium" | "large" | "fullwidth";
+type ButtonColorType = "black" | "primary";
+type ButtonVariantType = "select" | "default";
 
 export interface IUIButtonProps
   extends React.HTMLAttributes<HTMLButtonElement> {
   children: React.ReactNode;
-  size?: ButtomSizeType;
-  theme?: ButtomThemeType;
+  size?: ButtonSizeType;
+  theme?: ButtonThemeType;
+  color?: ButtonColorType;
+  variant?: ButtonVariantType;
 }
 
 export const UIButton: React.FC<IUIButtonProps> = ({
@@ -18,12 +23,28 @@ export const UIButton: React.FC<IUIButtonProps> = ({
   children,
   theme = "fill",
   size = "medium",
+  color = "primary",
+  variant = "default",
   ...props
-}) => (
-  <button
-    className={clsx(styles.UIButton, styles[theme], styles[size], className)}
-    {...props}
-  >
-    {children}
-  </button>
-);
+}) => {
+  const [selectActive, setSelectActive] = React.useState<boolean>();
+
+  return (
+    <button
+      className={clsx(
+        styles.UIButton,
+        styles[theme],
+        styles[size],
+        styles[color],
+        styles[variant],
+        className
+      )}
+      {...props}
+    >
+      {children}
+      {variant === "select" && (
+        <UITriangle className={styles.triangle} active={selectActive} />
+      )}
+    </button>
+  );
+};

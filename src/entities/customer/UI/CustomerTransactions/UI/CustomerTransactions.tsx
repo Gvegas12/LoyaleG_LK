@@ -5,11 +5,12 @@ import { OnClickEventArgs, Table } from "@/shared/UI/UITable";
 // import { authRoutePaths } from "@/shared/config/routes";
 
 import styles from "./CustomerTransactions.module.scss";
+import UI from "@/shared/UI";
 
 type MockDataItemType = {
   id: number;
   total: number;
-  products: string[];
+  products: React.ReactElement;
   establishment: string;
   transactionCreatedAt: string;
   manager: string;
@@ -20,7 +21,12 @@ const data: MockDataItemType[] = [
   {
     id: 1,
     total: 1000,
-    products: ["Каппучино", "Латте"],
+    products: (
+      <UI.Button color="black" size="small" variant="select">
+        Показать
+      </UI.Button>
+    ),
+    // products: ["Каппучино", "Латте"],
     establishment: "Choize Coffe 1",
     transactionCreatedAt: "18.19.1929 1",
     manager: "Manager 1111",
@@ -29,7 +35,8 @@ const data: MockDataItemType[] = [
   {
     id: 2,
     total: 2000,
-    products: ["Каппучино"],
+    products: <UI.Button>Показать</UI.Button>,
+    // products: ["Каппучино"],
     establishment: "Choize Coffe 2",
     transactionCreatedAt: "18.19.1929 2",
     manager: "Manager 2222",
@@ -38,7 +45,8 @@ const data: MockDataItemType[] = [
   {
     id: 3,
     total: 3000,
-    products: ["Каппучино", "Латте", "Раф"],
+    products: <UI.Button>Показать</UI.Button>,
+    // products: ["Каппучино", "Латте", "Раф"],
     establishment: "Choize Coffe 3",
     transactionCreatedAt: "18.19.1929 3",
     manager: "Manager 3333",
@@ -47,7 +55,8 @@ const data: MockDataItemType[] = [
   {
     id: 4,
     total: 4000,
-    products: ["Латте"],
+    products: <UI.Button>Показать</UI.Button>,
+    // products: ["Латте"],
     establishment: "Choize Coffe 4",
     transactionCreatedAt: "18.19.1929 4",
     manager: "Manager 4444",
@@ -56,7 +65,8 @@ const data: MockDataItemType[] = [
   {
     id: 5,
     total: 5000,
-    products: ["Каппучино", "Латте"],
+    products: <UI.Button>Показать</UI.Button>,
+    // products: ["Каппучино", "Латте"],
     establishment: "Choize Coffe 5",
     transactionCreatedAt: "18.19.1929 5",
     manager: "Manager 5555",
