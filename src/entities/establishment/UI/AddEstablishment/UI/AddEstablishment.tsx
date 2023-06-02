@@ -3,7 +3,7 @@ import clsx from "clsx";
 
 import UI from "@/shared/UI";
 import StatisticsCard from "@/shared/UI/UIStatisticsCard";
-import { UISelectOptionType } from "@/shared/UI/UISelect";
+import type { SelectOptionType } from "@/shared/UI/UISelect";
 
 import styles from "./AddEstablishment.module.scss";
 
@@ -12,7 +12,7 @@ export interface IAddEstablishmentProps {
   onClose?: () => void;
 }
 
-const options: UISelectOptionType[] = [
+const options: SelectOptionType[] = [
   {
     id: 1,
     text: "test 1",

@@ -1,7 +1,7 @@
 import { render, screen } from "@testing-library/react";
-import { UITable } from "./UITable";
+import { Table } from "./UITable";
 
-const tbody = [
+const body = [
   {
     name: "Jack",
     telegram: "t.me@jackkk",
@@ -44,7 +44,7 @@ const tbody = [
   },
 ];
 
-const thead = [
+const head = [
   "Name",
   "Telegram",
   "Phone",
@@ -55,11 +55,11 @@ const thead = [
 
 describe("UITable", () => {
   test("Test render without thead", () => {
-    render(<UITable tbody={tbody} />);
+    render(<Table body={body} />);
     expect(screen.getByTestId("uitable")).toBeInTheDocument();
   });
   test("Test render with thead", () => {
-    render(<UITable tbody={tbody} thead={thead} />);
+    render(<Table body={body} head={head} />);
     expect(screen.getByTestId("uitable")).toBeInTheDocument();
   });
 });

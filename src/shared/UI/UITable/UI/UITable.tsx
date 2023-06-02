@@ -1,47 +1,51 @@
 import React from "react";
 import clsx from "clsx";
 
-import UITableTbody from "./components/UITableTbody";
+import UITableBody from "./components/UITableBody";
 
-import { getTheadKeys } from "./helpers/getTheadKeys";
-import { useUITableTheadOmit } from "./hooks/useUITableTheadOmit";
+import { getTableHeadKeys } from "./helpers/getTableHeadKeys";
+import { useUITableHeadOmit } from "./hooks/useUITableHeadOmit";
 import type { IUITableProps, TableData } from "../types";
 
 import styles from "./UITable.module.scss";
 
-export const UITable: React.FC<IUITableProps> = ({
+const UITable: React.FC<IUITableProps> = ({
   omit,
   className,
-  thead,
-  tbody,
-  onClickTd,
+  head,
+  body,
+  onClickItem,
 }) => {
   const [tableData, setTableData] = React.useState<TableData>({
-    tbody,
-    thead: thead || getTheadKeys(tbody),
+    body,
+    head: head || getTableHeadKeys(body),
   });
 
-  useUITableTheadOmit({ omit, setTableData });
+  useUITableHeadOmit({ omit, setTableData });
+
+  const trStyles = {
+    gridTemplateColumns: `repeat(${tableData.head.length}, 1fr)`,
+  };
 
   return (
     <div data-testid="uitable" className={clsx(styles.UITable, className)}>
-      <div className={clsx(styles.tr, styles.thead)}>
-        {tableData.thead.map((k) => (
-          <div
-            className={clsx(!thead && styles.firstLetterToUppercase)}
-            key={k}
-          >
+      <div style={trStyles} className={clsx(styles.tr, styles.head)}>
+        {tableData.head.map((k) => (
+          <div className={clsx(!head && styles.firstLetterToUppercase)} key={k}>
             {k}
           </div>
         ))}
       </div>
-      <div className={styles.tbody}>
-        <UITableTbody
-          tbody={tableData.tbody}
+      <div className={styles.body}>
+        <UITableBody
+          _trStyles={trStyles}
+          body={tableData.body}
           omit={omit}
-          onClickTd={(args): void => onClickTd(args)}
+          onClickItem={(args): void => onClickItem(args)}
         />
       </div>
     </div>
   );
 };
+
+export { UITable as Table };

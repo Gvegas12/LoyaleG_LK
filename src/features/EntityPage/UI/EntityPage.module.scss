@@ -1,2 +1,30 @@
 .EntityPage {
+  .nav {
+    display: flex;
+    align-items: center;
+    column-gap: 7px;
+    border-bottom: 0.1px solid var(--primary-color);
+
+    .navItem {
+      padding: 12px 25px;
+      border-radius: 4px 4px 0px 0px;
+      background-color: var(--primary-bg-color);
+    }
+
+    .navItem.active {
+      color: var(--primary-color);
+      box-shadow: inset 0px 10px 10px rgba(0, 0, 0, 0.25);
+    }
+
+    .navItem.active.first {
+      box-shadow: inset 13px 13px 18px rgba(0, 0, 0, 0.25);
+    }
+  }
+
+  .body {
+    height: 80vh;
+    padding: var(--page-wrapper-padding);
+    border-radius: 0px 0px 4px 4px;
+    box-shadow: inset 10px -16px 18px rgba(0, 0, 0, 0.25);
+  }
 }

@@ -2,35 +2,22 @@
 import React from "react";
 import clsx from "clsx";
 import { UITriangle } from "../../UITriangle";
-import { UILabel, IUILabelProps } from "../../UILabel";
+import { UILabel } from "../../UILabel";
+import type { IUISelectProps, SelectOptionType } from "../types";
 
 import styles from "./UISelect.module.scss";
 
-export type UISelectOptionType = {
-  id: number;
-  text: string;
-};
-
-type UISelectType = "default" | "small";
-export interface IUISelectProps {
-  className?: string;
-  options: Array<UISelectOptionType>;
-  type?: UISelectType;
-  label?: IUILabelProps;
-  fullwidth?: boolean;
-  currentSelectedOption?: (item: any) => void;
-}
-
-export const UISelect: React.FC<IUISelectProps> = ({
+const UISelect: React.FC<IUISelectProps> = ({
   className,
   options,
-  type = "medium",
+  size = "medium",
   label,
+  color,
   fullwidth,
-  currentSelectedOption,
+  selectedOption: selectedOptionFromProps,
 }) => {
   const [toggleShow, setToggleShow] = React.useState<boolean>(false);
-  const [selectedOption, setSelectedOption] = React.useState<string>(
+  const [_selectedOption, setSelectedOption] = React.useState<string>(
     options[0].text
   );
 
@@ -39,13 +26,13 @@ export const UISelect: React.FC<IUISelectProps> = ({
   };
 
   const onSelect = (
-    e: React.MouseEvent<HTMLLIElement>,
-    option: UISelectOptionType
-  ) => {
-    setSelectedOption(e.currentTarget.innerText);
+    event: React.MouseEvent<HTMLLIElement>,
+    option: SelectOptionType
+  ): void => {
+    setSelectedOption(event.currentTarget.innerText);
     setToggleShow(false);
-    if (currentSelectedOption) {
-      currentSelectedOption(option);
+    if (selectedOptionFromProps) {
+      selectedOptionFromProps({ event, selectedItemData: option });
     }
   };
 
@@ -53,7 +40,7 @@ export const UISelect: React.FC<IUISelectProps> = ({
     <div
       data-testid="uiselect"
       style={{ width: fullwidth ? "100%" : "" }}
-      className={clsx(styles.UISelect, styles[type], className)}
+      className={clsx(styles.UISelect, styles[size], styles[color], className)}
     >
       {label && <UILabel {...label} />}
       <div className={styles.wrapper}>
@@ -65,7 +52,7 @@ export const UISelect: React.FC<IUISelectProps> = ({
             "focus--primary"
           )}
         >
-          {selectedOption}
+          {_selectedOption}
           <UITriangle active={toggleShow} className={styles.triangle} />
         </div>
         {toggleShow && (
@@ -73,7 +60,7 @@ export const UISelect: React.FC<IUISelectProps> = ({
             {options.map(({ id, text }, i) => (
               <li
                 key={id}
-                onClick={(e) => onSelect(e, options[i])}
+                onClick={(e): void => onSelect(e, options[i])}
                 className={styles.option}
               >
                 {text}
@@ -85,3 +72,5 @@ export const UISelect: React.FC<IUISelectProps> = ({
     </div>
   );
 };
+
+export { UISelect as Select };

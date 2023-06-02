@@ -15,6 +15,4 @@ const StorybookComponent: ComponentStory<typeof EntityPage> = (args) => (
 );
 
 export const Primary = StorybookComponent.bind({});
-Primary.args = {
-  children: "Text",
-} as IEntityPageProps;
+Primary.args = {} as IEntityPageProps;

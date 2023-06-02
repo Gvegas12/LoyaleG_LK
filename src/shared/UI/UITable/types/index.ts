@@ -1,19 +1,28 @@
-export type OnClickEventArgs<T> = {
+type OnClickEventArgs<T> = {
   event: React.MouseEvent<HTMLElement>;
   selectedItemData: T;
 };
-export type OnClickTDEvent<T> = {
+type OnClickItemEvent<T> = {
   event: (args: OnClickEventArgs<T>) => void;
 };
 
-export type TdType = object;
-export type ThType = string;
+type TdType = object;
+type ThType = string;
 
-export interface IUITableProps {
+interface IUITableProps {
   omit?: string[];
   className?: string;
-  thead?: ThType[];
-  tbody: TdType[];
-  onClickTd?: OnClickTDEvent<TdType>["event"];
+  head?: ThType[];
+  body: TdType[];
+  onClickItem?: OnClickItemEvent<TdType>["event"];
 }
-export type TableData = Pick<IUITableProps, "thead" | "tbody">;
+type TableData = Pick<IUITableProps, "head" | "body">;
+
+export type {
+  IUITableProps,
+  TableData,
+  OnClickEventArgs,
+  OnClickItemEvent,
+  TdType,
+  ThType,
+};

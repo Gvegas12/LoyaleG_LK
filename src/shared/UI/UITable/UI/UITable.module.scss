@@ -3,15 +3,24 @@
   border-radius: $br;
   height: calc(95vh - var(--navbar-height));
   background: var(--translucent-bg-color-2);
+
   .thead {
     border-bottom: 1px solid black;
   }
+
   .tr {
     padding: 10px 0;
     display: grid;
-    grid-template-columns: repeat(6, 1fr);
+    align-items: center;
     text-align: center;
   }
+
+  .td {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
   .firstLetterToUppercase {
     &::first-letter {
       text-transform: uppercase;

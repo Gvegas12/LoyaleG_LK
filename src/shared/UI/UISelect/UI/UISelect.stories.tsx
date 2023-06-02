@@ -1,20 +1,21 @@
 import { ComponentStory, ComponentMeta } from "@storybook/react";
 
-import { UISelect, IUISelectProps, UISelectOptionType } from "./UISelect";
+import { Select } from "./UISelect";
+import type { IUISelectProps, SelectOptionType } from "../types";
 
 export default {
   title: "shared/UISelect",
-  component: UISelect,
+  component: Select,
   argTypes: {
     backgroundColor: { control: "color" },
   },
-} as ComponentMeta<typeof UISelect>;
+} as ComponentMeta<typeof Select>;
 
-const StorybookComponent: ComponentStory<typeof UISelect> = (args) => (
-  <UISelect {...args} />
+const StorybookComponent: ComponentStory<typeof Select> = (args) => (
+  <Select {...args} />
 );
 
-const options: UISelectOptionType[] = [
+const options: SelectOptionType[] = [
   {
     id: 1,
     text: "test 1",

@@ -1,46 +1,38 @@
+$br: 4px;
 .UIButton {
+  position: relative;
+  --btn-primary-color: var(--primary-color);
+  --btn-primary-bg-color: var(--primary-bg-color);
+
   cursor: pointer;
-  padding: 12px 15px;
   font-weight: 600;
-  border-radius: 4px;
-}
+  border-radius: $br;
 
-// sizes
-.UIButton.small {
-  width: 100px;
-}
-.UIButton.medium {
-  width: 150px;
-}
-.UIButton.large {
-  width: 240px;
-}
-.UIButton.fullwidth {
-  width: 100%;
-}
-
-// themes
-%fill {
-  color: var(--primary-bg-color);
-  background: var(--primary-color);
-}
-
-.UIButton.outline {
-  outline: 1px solid var(--primary-color);
-  color: var(--primary-color);
-
-  transition-property: color, background;
-  transition-duration: 0.3s;
-
-  &:hover {
-    @extend %fill;
+  .triangle {
+    border-top-color: var(--btn-primary-bg-color);
   }
 }
-.UIButton.fill {
-  @extend %fill;
+
+$selectPaddings: 8px 11px;
+.selectBody {
+  position: absolute;
+  top: 100%;
+  left: 0;
+
+  width: 100%;
+  border-radius: 0 0 $br $br;
+  padding: $selectPaddings;
+  background: var(--translucent-bg-color-8);
 }
-.UIButton.clear {
-  background: none;
-  padding: 0;
-  margin: 0;
-}
+
+// variants
+@import "styles/variants";
+
+// sizes
+@import "styles/sizes";
+
+// colors
+@import "styles/colors";
+
+// themes
+@import "styles/themes";

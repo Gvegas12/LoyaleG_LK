@@ -1,18 +1,18 @@
 import { ComponentStory, ComponentMeta } from "@storybook/react";
 
-import { UITable } from "./UITable";
+import { Table } from "./UITable";
 import type { IUITableProps } from "../types";
 
 export default {
   title: "shared/UITable",
-  component: UITable,
+  component: Table,
   argTypes: {
     backgroundColor: { control: "color" },
   },
-} as ComponentMeta<typeof UITable>;
+} as ComponentMeta<typeof Table>;
 
-const StorybookComponent: ComponentStory<typeof UITable> = (args) => (
-  <UITable {...args} />
+const StorybookComponent: ComponentStory<typeof Table> = (args) => (
+  <Table {...args} />
 );
 
 export const Primary = StorybookComponent.bind({});
