@@ -1,16 +1,17 @@
 import { render, screen } from "@testing-library/react";
-import { UISelect, UISelectOptionType } from "./UISelect";
+import { Select } from "./UISelect";
+import type { SelectOptionType } from "../types";
 
 describe("UISelect", () => {
   test("Test render ", () => {
-    const options: UISelectOptionType[] = [
+    const options: SelectOptionType[] = [
       {
         id: 1,
         text: "test",
       },
     ];
 
-    render(<UISelect options={options} />);
+    render(<Select options={options} />);
     expect(screen.getByTestId("uiselect")).toBeInTheDocument();
   });
 });

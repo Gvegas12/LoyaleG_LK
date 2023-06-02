@@ -3,6 +3,7 @@ import clsx from "clsx";
 
 import styles from "./UIButton.module.scss";
 import { UITriangle } from "../../UITriangle";
+import { UITooltip } from "../../UITooltip";
 
 type ButtonThemeType = "outline" | "fill" | "clear";
 type ButtonSizeType = "small" | "medium" | "large" | "fullwidth";
@@ -25,25 +26,42 @@ export const UIButton: React.FC<IUIButtonProps> = ({
   size = "medium",
   color = "primary",
   variant = "default",
+  onClick,
   ...props
 }) => {
-  const [selectActive, setSelectActive] = React.useState<boolean>();
+  const [showSelectBody, setShowSelectBody] = React.useState<boolean>();
+
+  const onToggleTooltip = (): void => {
+    setShowSelectBody(!showSelectBody);
+  };
+
+  const onClickHandler = (event: React.MouseEvent<HTMLButtonElement>): void => {
+    if (variant === "select") {
+      onToggleTooltip();
+    }
+    if (onClick) {
+      onClick(event);
+    }
+  };
+
+  const classNames = clsx(
+    styles.UIButton,
+    styles[theme],
+    styles[size],
+    styles[color],
+    styles[variant],
+    showSelectBody && styles.selectActive,
+    className
+  );
 
   return (
-    <button
-      className={clsx(
-        styles.UIButton,
-        styles[theme],
-        styles[size],
-        styles[color],
-        styles[variant],
-        className
-      )}
-      {...props}
-    >
+    <button onClick={onClickHandler} className={classNames} {...props}>
       {children}
       {variant === "select" && (
-        <UITriangle className={styles.triangle} active={selectActive} />
+        <>
+          <UITriangle className={styles.triangle} active={showSelectBody} />
+          {showSelectBody && <div className={styles.selectBody}>asdasdasd</div>}
+        </>
       )}
     </button>
   );

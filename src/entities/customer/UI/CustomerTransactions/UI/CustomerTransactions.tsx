@@ -35,7 +35,11 @@ const data: MockDataItemType[] = [
   {
     id: 2,
     total: 2000,
-    products: <UI.Button>Показать</UI.Button>,
+    products: (
+      <UI.Button color="black" size="small" variant="select">
+        Показать
+      </UI.Button>
+    ),
     // products: ["Каппучино"],
     establishment: "Choize Coffe 2",
     transactionCreatedAt: "18.19.1929 2",
@@ -45,7 +49,11 @@ const data: MockDataItemType[] = [
   {
     id: 3,
     total: 3000,
-    products: <UI.Button>Показать</UI.Button>,
+    products: (
+      <UI.Button color="black" size="small" variant="select">
+        Показать
+      </UI.Button>
+    ),
     // products: ["Каппучино", "Латте", "Раф"],
     establishment: "Choize Coffe 3",
     transactionCreatedAt: "18.19.1929 3",
@@ -55,7 +63,11 @@ const data: MockDataItemType[] = [
   {
     id: 4,
     total: 4000,
-    products: <UI.Button>Показать</UI.Button>,
+    products: (
+      <UI.Button color="black" size="small" variant="select">
+        Показать
+      </UI.Button>
+    ),
     // products: ["Латте"],
     establishment: "Choize Coffe 4",
     transactionCreatedAt: "18.19.1929 4",
@@ -65,7 +77,11 @@ const data: MockDataItemType[] = [
   {
     id: 5,
     total: 5000,
-    products: <UI.Button>Показать</UI.Button>,
+    products: (
+      <UI.Button color="black" size="small" variant="select">
+        Показать
+      </UI.Button>
+    ),
     // products: ["Каппучино", "Латте"],
     establishment: "Choize Coffe 5",
     transactionCreatedAt: "18.19.1929 5",

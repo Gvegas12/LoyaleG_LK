@@ -15,6 +15,12 @@
     text-align: center;
   }
 
+  .td {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
   .firstLetterToUppercase {
     &::first-letter {
       text-transform: uppercase;

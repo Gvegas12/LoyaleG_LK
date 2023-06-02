@@ -1,15 +1,28 @@
+$br: 4px;
 .UIButton {
+  position: relative;
   --btn-primary-color: var(--primary-color);
   --btn-primary-bg-color: var(--primary-bg-color);
 
   cursor: pointer;
   font-weight: 600;
-  border-radius: 4px;
+  border-radius: $br;
 
   .triangle {
     border-top-color: var(--btn-primary-bg-color);
-    margin-left: 10px;
   }
+}
+
+$selectPaddings: 8px 11px;
+.selectBody {
+  position: absolute;
+  top: 100%;
+  left: 0;
+
+  width: 100%;
+  border-radius: 0 0 $br $br;
+  padding: $selectPaddings;
+  background: var(--translucent-bg-color-8);
 }
 
 // variants

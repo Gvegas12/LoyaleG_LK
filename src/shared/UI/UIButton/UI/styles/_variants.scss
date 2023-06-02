@@ -5,6 +5,10 @@
 .UIButton.select {
   display: flex;
   align-items: center;
+  justify-content: space-between;
+  padding: $selectPaddings;
+}
 
-  padding: 8px 11px;
+.UIButton.select.selectActive {
+  border-radius: $br $br 0 0;
 }

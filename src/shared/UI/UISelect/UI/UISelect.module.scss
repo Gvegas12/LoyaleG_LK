@@ -1,6 +1,4 @@
 .UISelect {
-  width: 284px;
-
   .wrapper {
     $br: 4px;
 
@@ -39,3 +37,6 @@
     }
   }
 }
+
+// sizes
+@import "styles/sizes";

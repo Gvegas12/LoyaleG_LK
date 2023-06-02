@@ -37,6 +37,7 @@ const UITableBody: React.FC<IUITableBodyProps> = ({
                   selectedItemData: body[i],
                 })
               }
+              className={styles.td}
             >
               {kv[1]}
             </div>
