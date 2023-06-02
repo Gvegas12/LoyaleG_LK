@@ -1,11 +1,10 @@
 import React from "react";
-
 import { useNavigate } from "react-router-dom";
-import UI from "@/shared/UI";
-import type { OnClickEventArgs } from "@/shared/UI/UITable";
+
+import { OnClickEventArgs, Table } from "@/shared/UI/UITable";
 import { authRoutePaths } from "@/shared/config/routes";
 
-type DataItemType = {
+type MockDataItemType = {
   id: number;
   name: string;
   telegram: string;
@@ -15,7 +14,7 @@ type DataItemType = {
   "cups for given": number;
 };
 
-const data = [
+const data: MockDataItemType[] = [
   {
     id: 1,
     name: "Jack 1",
@@ -65,13 +64,16 @@ const data = [
 
 const CustomersPage: React.FC = () => {
   const navigate = useNavigate();
-  const onClickHandler = (args: OnClickEventArgs<DataItemType>): void => {
+
+  const onClickTableItemHandler = (
+    args: OnClickEventArgs<MockDataItemType>
+  ): void => {
     navigate(`${authRoutePaths.customers}/${args.selectedItemData.id}`);
   };
 
   return (
     <div>
-      <UI.Table onClickTd={onClickHandler} tbody={data} omit={["id"]} />
+      <Table onClickItem={onClickTableItemHandler} body={data} omit={["id"]} />
     </div>
   );
 };

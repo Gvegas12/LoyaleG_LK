@@ -1,2 +1,2 @@
-export { UITable } from "./UI/UITable";
+export { Table } from "./UI/UITable";
 export type { OnClickEventArgs } from "./types";

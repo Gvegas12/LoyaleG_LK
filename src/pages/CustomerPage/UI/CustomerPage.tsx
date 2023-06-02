@@ -3,11 +3,12 @@ import { useParams } from "react-router-dom";
 
 import { useNavbarTitle } from "@/shared/providers/NavbarProvider";
 import { EntityPage, EntityPageItemType } from "@/features/EntityPage";
+import { CustomerTransactions } from "@/entities/customer";
 
 const data: Array<EntityPageItemType> = [
   {
     navItem: "Транзакции",
-    Component: () => <div>Транзакции Component</div>,
+    Component: () => <CustomerTransactions />,
   },
   {
     navItem: "Посещаемые места",
