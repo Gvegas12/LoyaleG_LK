@@ -3,16 +3,16 @@ import { useParams } from "react-router-dom";
 
 import { useNavbarTitle } from "@/shared/providers/NavbarProvider";
 import { EntityPage, EntityPageItemType } from "@/features/EntityPage";
-import { CustomerTransactions } from "@/entities/customer";
+import { CustomerTransactions, CustomerVisited } from "@/entities/customer";
 
-const data: Array<EntityPageItemType> = [
+const entityPageData: Array<EntityPageItemType> = [
   {
     navItem: "Транзакции",
     Component: () => <CustomerTransactions />,
   },
   {
     navItem: "Посещаемые места",
-    Component: () => <div>Посещаемые места Component</div>,
+    Component: () => <CustomerVisited />,
   },
   {
     navItem: "Акция",
@@ -26,11 +26,11 @@ const CustomerPage: React.FC = () => {
 
   React.useEffect(() => {
     setTitle(`Покупатель с id: ${id}`);
-  }, []);
+  }, [id, setTitle]);
 
   return (
     <div>
-      <EntityPage data={data} />
+      <EntityPage data={entityPageData} />
     </div>
   );
 };

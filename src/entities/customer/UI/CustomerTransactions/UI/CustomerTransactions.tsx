@@ -17,7 +17,7 @@ type MockDataItemType = {
   feedback: string;
 };
 
-const data: MockDataItemType[] = [
+const tableData: MockDataItemType[] = [
   {
     id: 1,
     total: 1000,
@@ -106,7 +106,7 @@ export const CustomerTransactions: React.FC = () => {
       <Table
         className={styles.table}
         onClickItem={onClickTableItemHandler}
-        body={data}
+        body={tableData}
       />
     </div>
   );
