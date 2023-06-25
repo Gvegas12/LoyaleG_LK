@@ -88,6 +88,7 @@
     "webpack-dev-server": "^4.15.0"
   },
   "dependencies": {
+    "@hookform/resolvers": "^3.1.1",
     "chart.js": "^4.3.0",
     "clsx": "^1.2.1",
     "i18next": "^22.5.0",
@@ -96,7 +97,9 @@
     "react": "^18.2.0",
     "react-chartjs-2": "^5.2.0",
     "react-dom": "^18.2.0",
+    "react-hook-form": "^7.45.0",
     "react-i18next": "^12.3.1",
-    "react-router-dom": "^6.11.2"
+    "react-router-dom": "^6.11.2",
+    "zod": "^3.21.4"
   }
 }

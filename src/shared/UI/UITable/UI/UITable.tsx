@@ -8,6 +8,7 @@ import { useUITableHeadOmit } from "./hooks/useUITableHeadOmit";
 import type { IUITableProps, TableData } from "../types";
 
 import styles from "./UITable.module.scss";
+import { UIButton } from "../../UIButton";
 
 const UITable: React.FC<IUITableProps> = ({
   omit,
@@ -17,6 +18,7 @@ const UITable: React.FC<IUITableProps> = ({
   onClickItem,
   trClassName,
   trStyles: trStylesProp,
+  button,
 }) => {
   const [tableData, setTableData] = React.useState<TableData>({
     body,
@@ -45,6 +47,11 @@ const UITable: React.FC<IUITableProps> = ({
         trClassName={trClassName}
         onClickItem={(args): void => onClickItem(args)}
       />
+      {button && (
+        <UIButton className={clsx(button.className, styles.btn)} {...button}>
+          {button.children}
+        </UIButton>
+      )}
     </div>
   );
 };

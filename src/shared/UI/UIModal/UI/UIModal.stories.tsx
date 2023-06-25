@@ -1,20 +1,18 @@
 import { ComponentStory, ComponentMeta } from "@storybook/react";
 
-import { UIModal, IUIModalProps } from "./UIModal";
+import { Modal } from "./UIModal";
 
 export default {
-  title: "shared/UIModal",
-  component: UIModal,
+  title: "shared/Modal",
+  component: Modal,
   argTypes: {
     backgroundColor: { control: "color" },
   },
-} as ComponentMeta<typeof UIModal>;
+} as ComponentMeta<typeof Modal>;
 
-const StorybookComponent: ComponentStory<typeof UIModal> = (args) => (
-  <UIModal {...args} />
+const StorybookComponent: ComponentStory<typeof Modal> = (args) => (
+  <Modal {...args} />
 );
 
 export const Primary = StorybookComponent.bind({});
-Primary.args = {
-  children: "Text",
-} as IUIModalProps;
+Primary.args = {};

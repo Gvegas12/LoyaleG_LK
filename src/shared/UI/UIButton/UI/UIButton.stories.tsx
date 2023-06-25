@@ -1,6 +1,6 @@
 import { ComponentStory, ComponentMeta } from "@storybook/react";
 
-import { UIButton, IUIButtonProps } from "./UIButton";
+import { UIButton } from "./UIButton";
 
 export default {
   title: "shared/UIButton",
@@ -17,4 +17,4 @@ const StorybookComponent: ComponentStory<typeof UIButton> = (args) => (
 export const Primary = StorybookComponent.bind({});
 Primary.args = {
   children: "Text",
-} as IUIButtonProps;
+};

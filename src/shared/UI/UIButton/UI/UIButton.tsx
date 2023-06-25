@@ -3,7 +3,6 @@ import clsx from "clsx";
 
 import styles from "./UIButton.module.scss";
 import { UITriangle } from "../../UITriangle";
-import { UITooltip } from "../../UITooltip";
 
 type ButtonThemeType = "outline" | "fill" | "clear";
 type ButtonSizeType = "small" | "medium" | "large" | "fullwidth";

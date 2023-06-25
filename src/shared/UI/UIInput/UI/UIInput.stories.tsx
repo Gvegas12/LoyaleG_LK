@@ -1,6 +1,6 @@
 import { ComponentStory, ComponentMeta } from "@storybook/react";
 
-import { UIInput, IUIInputProps } from "./UIInput";
+import { UIInput } from "./UIInput";
 
 export default {
   title: "shared/UIInput",
@@ -15,4 +15,4 @@ const StorybookComponent: ComponentStory<typeof UIInput> = (args) => (
 );
 
 export const Primary = StorybookComponent.bind({});
-Primary.args = {} as IUIInputProps;
+Primary.args = {};

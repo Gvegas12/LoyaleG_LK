@@ -2,8 +2,8 @@ import { Table } from "./UITable";
 import { Select } from "./UISelect";
 import { UIBox as Box } from "./UIBox";
 import { UILogo as Logo } from "./UILogo";
-import { UIInput as Input } from "./UIInput";
-import { UIModal as Modal } from "./UIModal";
+import { UIInput as Input, InputType } from "./UIInput";
+import { Modal } from "./UIModal";
 import { UIPortal as Portal } from "./UIPortal";
 import { UIButton as Button } from "./UIButton";
 import { UITooltip as Tooltip } from "./UITooltip";
@@ -28,3 +28,5 @@ export default {
   ThemeSwitcher,
   StatisticsCard,
 };
+
+export { Input, InputType };

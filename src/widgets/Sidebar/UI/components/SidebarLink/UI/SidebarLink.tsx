@@ -2,8 +2,8 @@ import React from "react";
 import clsx from "clsx";
 import { NavLink, Pathname, useMatch } from "react-router-dom";
 
-import { useChangeSVGTheme } from "@/shared/hooks/useChangeSVGTheme";
 import { useNavbarTitle } from "@/shared/providers/NavbarProvider";
+import { useChangeSVGTheme } from "@/shared/lib/hooks/useChangeSVGTheme";
 
 import styles from "./SidebarLink.module.scss";
 

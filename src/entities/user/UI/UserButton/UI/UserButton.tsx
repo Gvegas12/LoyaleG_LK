@@ -1,11 +1,11 @@
 import React from "react";
 import clsx from "clsx";
 
+import UI from "@/shared/UI";
 import MockAvatar from "./icons/mock-avatar.svg";
+import { useChangeSVGTheme } from "@/shared/lib/hooks/useChangeSVGTheme";
 
 import styles from "./UserButton.module.scss";
-import UI from "@/shared/UI";
-import { useChangeSVGTheme } from "@/shared/hooks/useChangeSVGTheme";
 
 export interface IUserButtonProps {
   className?: string;

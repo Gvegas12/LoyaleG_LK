@@ -10,3 +10,9 @@
     color: var(--secondary-text-color);
   }
 }
+
+.userElementsWrapper {
+  display: flex;
+  align-items: center;
+  column-gap: 30px;
+}

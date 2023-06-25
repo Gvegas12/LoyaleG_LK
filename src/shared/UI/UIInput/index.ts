@@ -1,1 +1,1 @@
-export { UIInput } from "./UI/UIInput";
+export { UIInput, InputType } from "./UI/UIInput";

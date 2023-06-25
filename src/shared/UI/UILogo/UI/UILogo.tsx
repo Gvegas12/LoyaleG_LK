@@ -2,10 +2,10 @@ import React from "react";
 import clsx from "clsx";
 
 import Logo from "@/shared/assets/img/Logo.svg";
-import { useChangeSVGTheme } from "@/shared/hooks/useChangeSVGTheme";
+import { useChangeSVGTheme } from "@/shared/lib/hooks/useChangeSVGTheme";
+import { authRoutePaths } from "@/shared/config/routes";
 
 import styles from "./UILogo.module.scss";
-import { authRoutePaths } from "@/shared/config/routes";
 
 export interface IUILogoProps {
   className?: string;

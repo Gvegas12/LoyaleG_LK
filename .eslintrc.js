@@ -45,6 +45,7 @@ module.exports = {
     "no-param-reassign": "off",
     "operator-linebreak": "off",
     "consistent-return": ["off"],
+    "react/display-name": "off",
     "array-callback-return": ["off"],
     "no-use-before-define": "off",
     quotes: ["error", "double"],

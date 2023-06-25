@@ -2,9 +2,11 @@
 @import "global.colors";
 @import "global.sizes";
 @import "global.text";
+@import "global.z-index";
 
 :root {
   @include get-KeyValue-from-SCSS-Maps($global-colors);
   @include get-KeyValue-from-SCSS-Maps($global-sizes);
   @include get-KeyValue-from-SCSS-Maps($global-text);
+  @include get-KeyValue-from-SCSS-Maps($global-z-index);
 }

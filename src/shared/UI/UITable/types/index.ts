@@ -1,3 +1,5 @@
+import type { IUIButtonProps } from "../../UIButton";
+
 type OnClickEventArgs<T> = {
   event: React.MouseEvent<HTMLElement>;
   selectedItemData: T;
@@ -17,6 +19,7 @@ interface IUITableProps {
   trStyles?: React.HTMLAttributes<React.CSSProperties>["style"];
   trClassName?: string;
   onClickItem?: OnClickItemEvent<TdType>["event"];
+  button?: IUIButtonProps;
 }
 type TableData = Pick<IUITableProps, "head" | "body">;
 

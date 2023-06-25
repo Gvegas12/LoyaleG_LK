@@ -4,9 +4,9 @@ import clsx from "clsx";
 import UI from "@/shared/UI";
 import { TelegramChatItem } from "../../TelegramChatItem";
 import BackIcon from "./icons/back.svg";
+import { useChangeSVGTheme } from "@/shared/lib/hooks/useChangeSVGTheme";
 
 import styles from "./TelegramChatSidebar.module.scss";
-import { useChangeSVGTheme } from "@/shared/hooks/useChangeSVGTheme";
 
 export const TelegramChatSidebar: React.FC = () => {
   useChangeSVGTheme();

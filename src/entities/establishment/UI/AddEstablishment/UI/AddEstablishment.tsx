@@ -35,16 +35,16 @@ export const AddEstablishment: React.FC<IAddEstablishmentProps> = ({
     className={clsx(styles.AddEstablishment, className)}
   >
     <div className={styles.form}>
-      <UI.Input required label={{ children: "Название", required: true }} />
+      {/* <UI.Input required label={{ children: "Название", required: true }} /> */}
       <UI.Select
         options={options}
         label={{ children: "Сфера бизнеса", required: true }}
       />
       <p className={styles.title}>Геопозиция</p>
-      <UI.Input required label={{ children: "Страна", required: true }} />
-      <UI.Input required label={{ children: "Город", required: true }} />
-      <UI.Input required label={{ children: "Улица", required: true }} />
-      <UI.Input required label={{ children: "Дом", required: true }} />
+      {/* <UI.Input required label={{ children: "Страна", required: true }} /> */}
+      {/* <UI.Input required label={{ children: "Город", required: true }} /> */}
+      {/* <UI.Input required label={{ children: "Улица", required: true }} /> */}
+      {/* <UI.Input required label={{ children: "Дом", required: true }} /> */}
     </div>
     <div className={styles.uploadImg}>
       <p className={styles.title}>Фотографии торговой точки (опционально)</p>

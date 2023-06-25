@@ -1,0 +1,9 @@
+.OwnerForm {
+  display: flex;
+  flex-direction: column;
+  row-gap: 20px;
+
+  width: 350px;
+  padding: var(--page-wrapper-padding);
+  box-shadow: 0 0 20px var(--primary-color);
+}

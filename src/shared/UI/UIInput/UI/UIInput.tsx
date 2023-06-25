@@ -1,49 +1,58 @@
-/* eslint-disable jsx-a11y/label-has-associated-control */ // TODO
-import React from "react";
+import { HTMLProps } from "react";
+import {
+  useController,
+  UseControllerProps,
+  FieldValues,
+} from "react-hook-form";
 import clsx from "clsx";
 
-import styles from "./UIInput.module.scss";
 import { IUILabelProps, UILabel } from "../../UILabel";
 
-type HTMLInputProps = Omit<
-  React.InputHTMLAttributes<HTMLInputElement>,
-  "value" | "onChange"
->;
+import styles from "./UIInput.module.scss";
 
-export interface IUIInputProps extends HTMLInputProps {
-  value?: string;
-  onChange?: (value: string) => void;
-  className?: string;
-  fullwidth?: boolean;
+type UIInputSizes = "small" | "medium" | "large" | "fullwidth";
+
+type HTMLInputProps = Omit<HTMLProps<HTMLInputElement>, "size">;
+
+interface IUIInputComponentProps extends HTMLInputProps {
+  required?: boolean;
+  size?: UIInputSizes;
   inputClassName?: string;
-  label?: IUILabelProps;
+  labelProps?: Omit<IUILabelProps, "children">;
+  label?: string;
 }
 
-export const UIInput: React.FC<IUIInputProps> = ({
-  value,
-  onChange,
+// prettier-ignore
+interface IUIInputProps<Values extends FieldValues> extends IUIInputComponentProps {
+  controller: UseControllerProps<Values>;
+}
+
+export type InputType<Values extends FieldValues> = IUIInputProps<Values>;
+
+export const UIInput = <Values extends FieldValues>({
   className,
-  fullwidth,
+  size = "medium",
+  required,
   inputClassName,
+  labelProps,
   label,
-  ...props
-}) => {
-  const onChangeHandler = (e: React.ChangeEvent<HTMLInputElement>): void => {
-    onChange?.(e.target.value);
-  };
+  type = "text",
+  controller,
+}: IUIInputProps<Values>) => {
+  const { field, fieldState } = useController<Values>(controller);
 
   return (
-    <div
-      style={{ width: fullwidth ? "100%" : "" }}
-      className={clsx(styles.UIInput, className)}
-    >
-      {label && <UILabel {...label} />}
+    <div className={clsx(styles.UIInput, styles[size], className)}>
+      {label && (
+        <UILabel required={required} {...labelProps}>
+          {label}
+        </UILabel>
+      )}
       <input
+        {...field}
+        type={type}
         data-testid="uiinput"
-        value={value}
-        onChange={onChangeHandler}
         className={clsx(styles.input, "focus--primary", inputClassName)}
-        {...props}
       />
     </div>
   );
