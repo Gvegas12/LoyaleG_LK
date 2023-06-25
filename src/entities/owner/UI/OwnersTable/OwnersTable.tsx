@@ -1,8 +1,6 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
 
 import { OnClickEventArgs, Table } from "@/shared/UI/UITable";
-import { authRoutePaths } from "@/shared/config/routes";
 
 type MockDataItemType = {
   id: number;
@@ -62,13 +60,13 @@ const data: MockDataItemType[] = [
   },
 ];
 
-const CustomersPage: React.FC = () => {
-  const navigate = useNavigate();
+interface IOwnersTableProps {}
 
+export const OwnersTable: React.FC<IOwnersTableProps> = () => {
   const onClickTableItemHandler = (
     args: OnClickEventArgs<MockDataItemType>
   ) => {
-    navigate(`${authRoutePaths.customers}/${args.selectedItemData.id}`);
+    console.log(args);
   };
 
   return (
@@ -80,5 +78,3 @@ const CustomersPage: React.FC = () => {
     />
   );
 };
-
-export default CustomersPage;

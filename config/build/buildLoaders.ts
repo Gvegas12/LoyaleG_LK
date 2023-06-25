@@ -1,8 +1,11 @@
 import type { RuleSetRule } from "webpack";
 import { BuildOptions } from "./types/config";
 import { buildCSSLoader } from "./loaders/buildCSSLoader";
+import { buildBabelLoader } from "./loaders/buildBabelLoader";
 
-export function buildLoaders({ isDev }: BuildOptions): Array<RuleSetRule> {
+export function buildLoaders(options: BuildOptions): Array<RuleSetRule> {
+  const { isDev } = options;
+
   const typescriptLoader: RuleSetRule = {
     test: /\.tsx?$/,
     use: "ts-loader",
@@ -34,26 +37,7 @@ export function buildLoaders({ isDev }: BuildOptions): Array<RuleSetRule> {
     },
   };
 
-  const babelLoader: RuleSetRule = {
-    test: /\.(js|jsx|ts|tsx)$/,
-    exclude: /node_modules/,
-    use: {
-      loader: "babel-loader",
-      // options: {
-      //   presets: ["@babel/preset-env"],
-      //   plugins: [
-      //     [
-      //       "i18next-extract",
-      //       {
-      //         nsSeparator: AppAlias.value,
-      //         locales: ["ru", "en"],
-      //         keyAsDefaultValue: true,
-      //       },
-      //     ],
-      //   ],
-      // },
-    },
-  };
+  const babelLoader = buildBabelLoader(options);
 
   return [
     fileLoader,

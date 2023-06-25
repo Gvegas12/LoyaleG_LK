@@ -3,11 +3,11 @@ import { useNavigate } from "react-router-dom";
 
 import { OnClickEventArgs, Table } from "@/shared/UI/UITable";
 // import { authRoutePaths } from "@/shared/config/routes";
-
-import styles from "./CustomerTransactions.module.scss";
 import UI from "@/shared/UI";
 
-type MockDataItemType = {
+import styles from "./CustomerTransactions.module.scss";
+
+type CustomerTransactionsTableItemType = {
   id: number;
   total: number;
   products: React.ReactElement;
@@ -17,7 +17,7 @@ type MockDataItemType = {
   feedback: string;
 };
 
-const tableData: MockDataItemType[] = [
+const tableData: CustomerTransactionsTableItemType[] = [
   {
     id: 1,
     total: 1000,
@@ -94,7 +94,7 @@ export const CustomerTransactions: React.FC = () => {
   const navigate = useNavigate();
 
   const onClickTableItemHandler = (
-    args: OnClickEventArgs<MockDataItemType>
+    args: OnClickEventArgs<CustomerTransactionsTableItemType>
   ): void => {
     console.log(args);
 
@@ -104,8 +104,9 @@ export const CustomerTransactions: React.FC = () => {
   return (
     <div>
       <Table
-        className={styles.table}
         onClickItem={onClickTableItemHandler}
+        className={styles.table}
+        // onClickTd={onClickTableItemHandler}
         body={tableData}
       />
     </div>

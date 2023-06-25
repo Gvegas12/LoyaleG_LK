@@ -9,6 +9,7 @@ import EstablishmentsPage from "@/pages/EstablishmentsPage";
 import CustomersPage from "@/pages/CustomersPage";
 import CustomerPage from "@/pages/CustomerPage";
 import SettingsPage from "@/pages/SettingsPage";
+import OwnersPage from "@/pages/OwnersPage";
 
 export const authRouteConfig: Record<AuthRoutesEnum, RouteProps> = {
   [AuthRoutesEnum.HOME]: {
@@ -18,6 +19,10 @@ export const authRouteConfig: Record<AuthRoutesEnum, RouteProps> = {
   [AuthRoutesEnum.CUSTOMER]: {
     path: authRoutePaths.customer,
     element: <CustomerPage />,
+  },
+  [AuthRoutesEnum.OWNERS]: {
+    path: authRoutePaths.owners,
+    element: <OwnersPage />,
   },
   [AuthRoutesEnum.CUSTOMERS]: {
     path: authRoutePaths.customers,

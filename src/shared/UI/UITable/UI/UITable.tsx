@@ -15,6 +15,8 @@ const UITable: React.FC<IUITableProps> = ({
   head,
   body,
   onClickItem,
+  trClassName,
+  trStyles: trStylesProp,
 }) => {
   const [tableData, setTableData] = React.useState<TableData>({
     body,
@@ -36,14 +38,13 @@ const UITable: React.FC<IUITableProps> = ({
           </div>
         ))}
       </div>
-      <div className={styles.body}>
-        <UITableBody
-          _trStyles={trStyles}
-          body={tableData.body}
-          omit={omit}
-          onClickItem={(args): void => onClickItem(args)}
-        />
-      </div>
+      <UITableBody
+        _trStyles={{ ...trStyles, ...trStylesProp }}
+        body={tableData.body}
+        omit={omit}
+        trClassName={trClassName}
+        onClickItem={(args): void => onClickItem(args)}
+      />
     </div>
   );
 };

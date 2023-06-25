@@ -8,6 +8,7 @@ import { UIPortal as Portal } from "./UIPortal";
 import { UIButton as Button } from "./UIButton";
 import { UITooltip as Tooltip } from "./UITooltip";
 import { UITriangle as Triangle } from "./UITriangle";
+import { UILineChart as LineChart } from "./UILineChart";
 import { UIThemeSwitcher as ThemeSwitcher } from "./UIThemeSwitcher";
 
 import StatisticsCard from "./UIStatisticsCard";
@@ -23,6 +24,7 @@ export default {
   Select,
   Tooltip,
   Triangle,
+  LineChart,
   ThemeSwitcher,
   StatisticsCard,
 };

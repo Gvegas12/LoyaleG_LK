@@ -1,6 +1,6 @@
 import path from "path";
-import { buildWebpackConfig } from "./config/build/buildWebpackConfig";
 import type { Configuration } from "webpack";
+import { buildWebpackConfig } from "./config/build/buildWebpackConfig";
 import type {
   BuildEnv,
   BuildMode,
@@ -26,6 +26,8 @@ export default (env: BuildEnv) => {
     paths,
     isDev,
     port: PORT,
+    project: "frontend",
+    apiUrl: "",
   });
 
   return config;

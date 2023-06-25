@@ -8,6 +8,7 @@ export enum AuthRoutesEnum {
   SETTINGS = "settings",
   SUPPORT = "support",
   ABOUT = "about",
+  OWNERS = "owners",
 }
 
 export const authRoutePaths: Record<AuthRoutesEnum, string> = {
@@ -20,4 +21,5 @@ export const authRoutePaths: Record<AuthRoutesEnum, string> = {
   [AuthRoutesEnum.SETTINGS]: "/settings",
   [AuthRoutesEnum.SUPPORT]: "/support",
   [AuthRoutesEnum.ABOUT]: "/about",
+  [AuthRoutesEnum.OWNERS]: "/owners",
 };

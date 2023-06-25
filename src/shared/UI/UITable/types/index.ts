@@ -14,6 +14,8 @@ interface IUITableProps {
   className?: string;
   head?: ThType[];
   body: TdType[];
+  trStyles?: React.HTMLAttributes<React.CSSProperties>["style"];
+  trClassName?: string;
   onClickItem?: OnClickItemEvent<TdType>["event"];
 }
 type TableData = Pick<IUITableProps, "head" | "body">;

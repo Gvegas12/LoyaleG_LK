@@ -64,6 +64,13 @@ export const Sidebar: React.FC<ISidebarProps> = ({ className }) => {
           to: authRoutePaths.customers,
         },
       },
+      {
+        IconComponent: CustomersIcon,
+        link: {
+          text: "Владельцы",
+          to: authRoutePaths.owners,
+        },
+      },
     ],
   };
 

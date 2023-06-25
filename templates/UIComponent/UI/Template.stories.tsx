@@ -15,6 +15,4 @@ const StorybookComponent: ComponentStory<typeof Template> = (args) => (
 );
 
 export const Primary = StorybookComponent.bind({});
-Primary.args = {
-  children: "Text",
-} as ITemplateProps;
+Primary.args = {};
