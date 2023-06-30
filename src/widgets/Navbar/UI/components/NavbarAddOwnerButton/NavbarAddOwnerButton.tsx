@@ -1,7 +1,6 @@
 import React from "react";
 
 import UI from "@/shared/UI";
-import { OwnerFormModal } from "@/entities/owner";
 
 export const NavbarAddOwnerButton: React.FC = React.memo(() => {
   const [modalIsOpen, setModalIsOpen] = React.useState(false);
@@ -18,7 +17,7 @@ export const NavbarAddOwnerButton: React.FC = React.memo(() => {
       <UI.Button onClick={onOpen} size="large">
         Добавить владельца
       </UI.Button>
-      <OwnerFormModal isOpen={modalIsOpen} onClose={onClose} />
+      {/* <UsersTable /> */}
     </>
   );
 });

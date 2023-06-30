@@ -14,5 +14,16 @@ declare module "*.svg" {
   export default SVG;
 }
 
-// eslint-disable-next-line no-underscore-dangle
+/**
+ * Переменная является **true**, если webpack запущен в dev mode
+ *
+ * Переменная обьявлена **<root>/config/build/buildPlugins.ts**
+ * в плагине **webpack.DefinePlugin**
+ */
 declare const __IS_DEV__: boolean;
+/**
+ * Переменная обьявлена **<root>/config/build/buildPlugins.ts**
+ * в плагине **webpack.DefinePlugin**
+ * @example http://localhost:5000/api
+ */
+declare const __API_URL__: string;

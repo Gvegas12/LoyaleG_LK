@@ -1,7 +1,12 @@
+import dotenv from "dotenv";
+dotenv.config();
+
 import path from "path";
 import type { Configuration } from "webpack";
+
 import { buildWebpackConfig } from "./config/build/buildWebpackConfig";
 import type {
+  BuildApiUrl,
   BuildEnv,
   BuildMode,
   BuildPaths,
@@ -21,13 +26,18 @@ export default (env: BuildEnv) => {
 
   const isDev = mode === "development";
 
+  const apiUrl: BuildApiUrl = {
+    target: process.env.API_URL || "http://localhost:5000",
+    apiRootPath: process.env.API_ROOT_PATH || "/api",
+  };
+
   const config: Configuration = buildWebpackConfig({
     mode,
     paths,
     isDev,
     port: PORT,
     project: "frontend",
-    apiUrl: "",
+    apiUrl,
   });
 
   return config;

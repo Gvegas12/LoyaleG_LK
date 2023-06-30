@@ -1,12 +1,15 @@
 import React from "react";
 
-import StatisticsCard from "@/shared/UI/UIStatisticsCard";
-import { AddEstablishment } from "@/entities/establishment";
+import { EstablishmentsList } from "@/features/EstablishmentsList";
+import { AddEstablishment, Establishment } from "@/entities/establishment";
 
 import styles from "./EstablishmentsPage.module.scss";
 
 const EstablishmentsPage: React.FC = () => {
   const [addNew, setAddNew] = React.useState(false);
+  const [establishments, setEstablishments] = React.useState<Establishment[]>(
+    []
+  );
 
   const onAddNew = (): void => {
     setAddNew(true);
@@ -16,39 +19,7 @@ const EstablishmentsPage: React.FC = () => {
     return <AddEstablishment onClose={(): void => setAddNew(false)} />;
   }
 
-  return (
-    <div className={styles.EstablishmentsPage}>
-      <StatisticsCard.Body title="Choize Coffee">
-        <StatisticsCard.MiddleChildren>92,680</StatisticsCard.MiddleChildren>
-        <StatisticsCard.Filter>+3,840 (26,80%)</StatisticsCard.Filter>
-      </StatisticsCard.Body>
-      <StatisticsCard.Body title="Choize Coffee">
-        <StatisticsCard.MiddleChildren>92,680</StatisticsCard.MiddleChildren>
-        <StatisticsCard.Filter>+3,840 (26,80%)</StatisticsCard.Filter>
-      </StatisticsCard.Body>
-      <StatisticsCard.Body title="Choize Coffee">
-        <StatisticsCard.MiddleChildren>92,680</StatisticsCard.MiddleChildren>
-        <StatisticsCard.Filter>+3,840 (26,80%)</StatisticsCard.Filter>
-      </StatisticsCard.Body>
-      <StatisticsCard.Body title="Choize Coffee">
-        <StatisticsCard.MiddleChildren>92,680</StatisticsCard.MiddleChildren>
-        <StatisticsCard.Filter>+3,840 (26,80%)</StatisticsCard.Filter>
-      </StatisticsCard.Body>
-      <StatisticsCard.Body title="Choize Coffee">
-        <StatisticsCard.MiddleChildren>92,680</StatisticsCard.MiddleChildren>
-        <StatisticsCard.Filter>+3,840 (26,80%)</StatisticsCard.Filter>
-      </StatisticsCard.Body>
-      <StatisticsCard.Body title="Choize Coffee">
-        <StatisticsCard.MiddleChildren>92,680</StatisticsCard.MiddleChildren>
-        <StatisticsCard.Filter>+3,840 (26,80%)</StatisticsCard.Filter>
-      </StatisticsCard.Body>
-      <StatisticsCard.Body title="Choize Coffee">
-        <StatisticsCard.MiddleChildren>92,680</StatisticsCard.MiddleChildren>
-        <StatisticsCard.Filter>+3,840 (26,80%)</StatisticsCard.Filter>
-      </StatisticsCard.Body>
-      <StatisticsCard.Body onClick={onAddNew} addNew />
-    </div>
-  );
+  return <EstablishmentsList />;
 };
 
 export default EstablishmentsPage;

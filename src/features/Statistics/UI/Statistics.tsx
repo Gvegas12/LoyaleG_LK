@@ -1,10 +1,11 @@
 /* eslint-disable i18next/no-literal-string */ /* TODO */
 import React from "react";
 import clsx from "clsx";
+
+import UI from "@/shared/UI";
 import StatisticsCard from "@/shared/UI/UIStatisticsCard";
 
 import styles from "./Statistics.module.scss";
-import UI from "@/shared/UI";
 
 export interface IStatisticsProps {
   className?: string;

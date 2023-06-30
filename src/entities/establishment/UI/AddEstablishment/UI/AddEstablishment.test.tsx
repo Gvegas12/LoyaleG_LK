@@ -3,7 +3,7 @@ import { AddEstablishment } from "./AddEstablishment";
 
 describe("AddEstablishment", () => {
   test("Test render ", () => {
-    render(<AddEstablishment />);
+    render(<AddEstablishment onClose={() => ({})} />);
     expect(screen.getByTestId("addestablishment")).toBeInTheDocument();
   });
 });

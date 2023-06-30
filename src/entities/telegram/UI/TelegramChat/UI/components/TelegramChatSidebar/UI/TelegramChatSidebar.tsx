@@ -2,9 +2,9 @@ import React from "react";
 import clsx from "clsx";
 
 import UI from "@/shared/UI";
-import { TelegramChatItem } from "../../TelegramChatItem";
 import BackIcon from "./icons/back.svg";
-import { useChangeSVGTheme } from "@/shared/lib/hooks/useChangeSVGTheme";
+import { TelegramChatItem } from "../../TelegramChatItem";
+import { useChangeSVGTheme } from "@/shared/lib/hooks";
 
 import styles from "./TelegramChatSidebar.module.scss";
 

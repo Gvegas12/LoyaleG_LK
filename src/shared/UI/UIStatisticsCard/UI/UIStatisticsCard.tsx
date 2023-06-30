@@ -12,29 +12,29 @@ interface IUIStatisticsCardChildrenProps {
 }
 
 const UIStatisticsCardMiddleChildren: React.FC<IUIStatisticsCardChildrenProps> =
-  ({ className, children }) => (
+  React.memo(({ className, children }) => (
     <div className={clsx("UIStatisticsCardMiddleChildren", className)}>
       {children}
     </div>
-  );
+  ));
 
 const UIStatisticsCardFilterChildren: React.FC<
   IUIStatisticsCardChildrenProps & {
     icon?: React.ReactSVGElement;
   }
-> = ({ className, children, icon }) => (
+> = React.memo(({ className, children, icon }) => (
   <div className={clsx("UIStatisticsCardFilterChildren", className)}>
     <div>{children}</div>
     {icon || <SwapIcon className={styles.swapIcon} />}
   </div>
-);
+));
 
 export interface IUIStatisticsCardProps {
   addNew?: boolean;
   showIcon?: boolean;
   icon?: React.ReactSVGElement;
   title?: string;
-  pointer?: boolean;
+  disabled?: boolean;
   children?: React.ReactNode;
   className?: string;
   onClick?: () => void;
@@ -45,35 +45,33 @@ const UIStatisticsCard: React.FC<IUIStatisticsCardProps> = ({
   showIcon = true,
   icon,
   title,
-  pointer = true,
+  disabled,
   children,
   className,
   onClick,
-}) => {
-  return (
-    <div
-      data-testid="statisticsCard"
-      onClick={onClick}
-      className={clsx(
-        addNew ? styles.addNew : styles.UIStatisticsCard,
-        pointer && styles.pointer,
-        className
-      )}
-    >
-      {addNew ? (
-        showIcon && <PlusIcon className={styles.plus} />
-      ) : (
-        <>
-          <div className={styles.header}>
-            <p className={styles.title}>{title}</p>
-            {icon}
-          </div>
-          {children}
-        </>
-      )}
-    </div>
-  );
-};
+}) => (
+  <div
+    data-testid="statisticsCard"
+    onClick={onClick}
+    className={clsx(
+      addNew ? styles.addNew : styles.UIStatisticsCard,
+      disabled && styles.disabled,
+      className
+    )}
+  >
+    {addNew ? (
+      showIcon && <PlusIcon className={styles.plus} />
+    ) : (
+      <>
+        <div className={styles.header}>
+          <p className={styles.title}>{title}</p>
+          {icon}
+        </div>
+        {children}
+      </>
+    )}
+  </div>
+);
 
 export {
   UIStatisticsCard as Body,

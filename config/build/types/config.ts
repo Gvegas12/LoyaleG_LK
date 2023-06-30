@@ -11,10 +11,21 @@ export interface BuildPaths {
   favicon: string;
 }
 
+export interface BuildApiUrl {
+  /**
+   * @example "http://localhost:3000"
+   */
+  target: string;
+  /**
+   * @example "/api/**"
+   */
+  apiRootPath: string;
+}
+
 export interface BuildEnv {
   mode: BuildMode;
   port: number;
-  apiUrl: string;
+  apiUrl: BuildApiUrl;
 }
 
 export interface BuildOptions extends BuildEnv {

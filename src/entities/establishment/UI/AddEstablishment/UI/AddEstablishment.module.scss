@@ -6,16 +6,14 @@
 
   .title {
     font: var(--font-l);
+    margin-top: 10px;
   }
 
   .form {
     display: flex;
     flex-direction: column;
     row-gap: 20px;
-
-    .title {
-      margin-top: 10px;
-    }
+    width: 30%;
   }
 
   .uploadImg {
@@ -25,11 +23,6 @@
     flex-direction: column;
     justify-content: space-between;
 
-    .title {
-      font: var(--font-m);
-      margin-bottom: 10px;
-    }
-
     &BtnMain {
       width: 100%;
       height: 300px;
@@ -38,7 +31,7 @@
     &BtnSmall {
       display: grid;
       align-items: center;
-      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      grid-template-columns: repeat(3, 1fr);
       column-gap: 20px;
 
       .uploadImgBtnSmallElement {
@@ -52,6 +45,13 @@
       align-items: center;
       column-gap: 20px;
       align-self: flex-end;
+      margin-top: 50px;
     }
+  }
+
+  .inputs {
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
   }
 }

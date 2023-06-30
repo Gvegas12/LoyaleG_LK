@@ -11,17 +11,19 @@ interface ISidebarLinksProps {
   data: Array<ISidebarLinkProps>;
 }
 
-export const SidebarLinks: React.FC<ISidebarLinksProps> = ({
-  data,
-  name,
-  className,
-}) => (
-  <div className={clsx(styles.SidebarLinks, className)}>
-    <span className={styles.name}>{name}</span>
-    <div className={styles.wrapper}>
-      {data.map(({ link, IconComponent }) => (
-        <SidebarLink key={link.to} link={link} IconComponent={IconComponent} />
-      ))}
+export const SidebarLinks: React.FC<ISidebarLinksProps> = React.memo(
+  ({ data, name, className }) => (
+    <div className={clsx(styles.SidebarLinks, className)}>
+      <span className={styles.name}>{name}</span>
+      <div className={styles.wrapper}>
+        {data.map(({ link, IconComponent }) => (
+          <SidebarLink
+            key={link.to}
+            link={link}
+            IconComponent={IconComponent}
+          />
+        ))}
+      </div>
     </div>
-  </div>
+  )
 );

@@ -1,4 +1,3 @@
-import React from "react";
 import ReactDOM from "react-dom/client";
 import { BrowserRouter } from "react-router-dom";
 
@@ -9,13 +8,11 @@ import { NavbarProvider } from "./shared/providers/NavbarProvider";
 import "@/shared/assets/styles/main.scss";
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
-  <React.StrictMode>
-    <BrowserRouter>
-      <NavbarProvider>
-        <ThemeProvider>
-          <AppRouter />
-        </ThemeProvider>
-      </NavbarProvider>
-    </BrowserRouter>
-  </React.StrictMode>
+  <BrowserRouter>
+    <NavbarProvider>
+      <ThemeProvider>
+        <AppRouter />
+      </ThemeProvider>
+    </NavbarProvider>
+  </BrowserRouter>
 );

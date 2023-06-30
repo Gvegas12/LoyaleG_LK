@@ -1,19 +1,40 @@
 import React from "react";
-import { useTranslation } from "react-i18next";
-import { Statistics } from "@/features/Statistics";
+import { useLocation } from "react-router-dom";
 
-import styles from "./MainPage.module.scss";
+import { Statistics } from "@/features/Statistics";
+import {
+  NavigateStateSchema,
+  userAlreadyLoggedIn,
+} from "@/shared/config/routes";
+import UI from "@/shared/UI";
+import { useOnClearLocationState } from "@/shared/lib/hooks";
 
 const MainPage: React.FC = () => {
-  const { t } = useTranslation("main");
+  const [isShowModal, setIsShowModal] = React.useState(false);
+  const locationState = useLocation().state as NavigateStateSchema;
+  const onClearLocationState = useOnClearLocationState();
 
-  const [value, setValue] = React.useState<string>("");
+  React.useEffect(() => {
+    if (locationState?.description === userAlreadyLoggedIn?.description) {
+      setIsShowModal(true);
+    }
+  }, [locationState?.description, onClearLocationState]);
 
-  const onChangeHandler = (val: string): void => {
-    setValue(val);
+  const onCloseModal = () => {
+    setIsShowModal(false);
+    onClearLocationState();
   };
 
-  return <Statistics />;
+  return (
+    <>
+      {isShowModal && (
+        <UI.Modal isOpen={isShowModal} onClose={onCloseModal}>
+          {userAlreadyLoggedIn.description}
+        </UI.Modal>
+      )}
+      <Statistics />
+    </>
+  );
 };
 
 export default MainPage;

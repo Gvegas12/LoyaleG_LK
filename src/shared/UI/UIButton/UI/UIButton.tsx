@@ -10,7 +10,7 @@ type ButtonColorType = "black" | "primary";
 type ButtonVariantType = "select" | "default";
 
 export interface IUIButtonProps
-  extends React.HTMLAttributes<HTMLButtonElement> {
+  extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   children: React.ReactNode;
   size?: ButtonSizeType;
   theme?: ButtonThemeType;

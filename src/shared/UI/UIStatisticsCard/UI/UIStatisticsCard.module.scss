@@ -11,6 +11,7 @@ $hoverColor: black;
   border-radius: 12px;
   box-shadow: inset 5px 5px 10px rgba(0, 0, 0, 0.25);
   background-color: var(--primary-bg-color);
+  cursor: pointer;
 
   @include m_transition(background-color);
 
@@ -107,6 +108,6 @@ $hoverColor: black;
   }
 }
 
-.pointer {
-  cursor: pointer;
+.disabled {
+  cursor: auto;
 }

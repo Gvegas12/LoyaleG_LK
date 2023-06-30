@@ -1,0 +1,32 @@
+.PublicLayout {
+  width: 100%;
+  background-color: var(--secondary-bg-color);
+
+  .container {
+    width: 80%;
+    margin: 0 auto;
+    padding: 41px 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .ThemeSwitcher {
+    width: max-content;
+  }
+
+  .pageWrapper {
+    flex-grow: 1;
+
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}

@@ -5,8 +5,8 @@ import SignupPage from "@/pages/SignupPage";
 // import NotFoundPage from "@/pages/NotFoundPage"; // TODO
 
 export const publicRouteConfig: Record<PublicRoutesEnum, RouteProps> = {
-  [PublicRoutesEnum.SIGNIN]: {
-    path: publicRoutePaths.signin,
+  [PublicRoutesEnum.AUTH]: {
+    index: true,
     element: <SigninPage />,
   },
   [PublicRoutesEnum.SIGNUP]: {
@@ -15,6 +15,6 @@ export const publicRouteConfig: Record<PublicRoutesEnum, RouteProps> = {
   },
   [PublicRoutesEnum.NOT_FOUND]: {
     path: publicRoutePaths.not_found,
-    element: <Navigate to={publicRoutePaths.signin} replace />,
+    element: <Navigate to={publicRoutePaths.auth} replace />,
   },
 };

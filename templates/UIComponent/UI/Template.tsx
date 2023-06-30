@@ -3,7 +3,7 @@ import clsx from "clsx";
 
 import styles from "./Template.module.scss";
 
-export interface ITemplateProps {
+interface ITemplateProps {
   children: React.ReactNode;
   className?: string;
 }

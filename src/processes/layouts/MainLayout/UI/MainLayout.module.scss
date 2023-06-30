@@ -1,0 +1,11 @@
+.contentPage {
+  display: flex;
+  height: 100vh;
+}
+
+.pageWrapper {
+  flex-grow: 1;
+  padding: var(--page-wrapper-padding);
+  padding-top: 0;
+  background-color: var(--secondary-bg-color);
+}

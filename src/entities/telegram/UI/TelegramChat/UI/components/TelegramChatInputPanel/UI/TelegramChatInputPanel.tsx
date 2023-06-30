@@ -3,7 +3,7 @@ import React from "react";
 import SendIcon from "./icons/send.svg";
 import SmilesIcon from "./icons/smiles.svg";
 import UploadFileIcon from "./icons/paperclip.svg";
-import { useChangeSVGTheme } from "@/shared/lib/hooks/useChangeSVGTheme";
+import { useChangeSVGTheme } from "@/shared/lib/hooks";
 
 import styles from "./TelegramChatInputPanel.module.scss";
 

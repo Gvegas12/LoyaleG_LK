@@ -68,7 +68,7 @@ export const Sidebar: React.FC<ISidebarProps> = ({ className }) => {
         IconComponent: CustomersIcon,
         link: {
           text: "Владельцы",
-          to: authRoutePaths.owners,
+          to: authRoutePaths.users,
         },
       },
     ],

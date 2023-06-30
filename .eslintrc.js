@@ -48,6 +48,7 @@ module.exports = {
     "react/display-name": "off",
     "array-callback-return": ["off"],
     "no-use-before-define": "off",
+    "no-underscore-dangle": "off",
     quotes: ["error", "double"],
     "implicit-arrow-linebreak": "off",
     "linebreak-style": ["off", "windows"],

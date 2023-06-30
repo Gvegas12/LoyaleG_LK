@@ -1,4 +1,5 @@
-import { HTMLProps } from "react";
+/* eslint-disable jsx-a11y/label-has-associated-control */ // TODO
+import { HTMLProps, useEffect, useState } from "react";
 import {
   useController,
   UseControllerProps,
@@ -20,6 +21,7 @@ interface IUIInputComponentProps extends HTMLInputProps {
   inputClassName?: string;
   labelProps?: Omit<IUILabelProps, "children">;
   label?: string;
+  error?: string | null;
 }
 
 // prettier-ignore
@@ -38,8 +40,15 @@ export const UIInput = <Values extends FieldValues>({
   label,
   type = "text",
   controller,
+  error,
+  ...props
 }: IUIInputProps<Values>) => {
   const { field, fieldState } = useController<Values>(controller);
+  const [errorMessage, setErrorMessage] = useState<string | null>();
+
+  useEffect(() => {
+    setErrorMessage(fieldState.error?.message || error);
+  }, [error, fieldState.error?.message]);
 
   return (
     <div className={clsx(styles.UIInput, styles[size], className)}>
@@ -50,10 +59,12 @@ export const UIInput = <Values extends FieldValues>({
       )}
       <input
         {...field}
+        {...props}
         type={type}
         data-testid="uiinput"
         className={clsx(styles.input, "focus--primary", inputClassName)}
       />
+      {errorMessage && <p className={styles.error}>{errorMessage}</p>}
     </div>
   );
 };

@@ -9,11 +9,11 @@
     cursor: pointer;
     text-decoration: underline;
     background-color: transparent;
+    color: var(--primary-color);
   }
 
   .labelText {
     display: flex;
-    color: var(--lightgray);
     .asterisk {
       margin-left: 5px;
       color: var(--red);

@@ -1,3 +1,3 @@
-import AppRouter from "./AppRouter";
+import AppRouter from "./UI/AppRouter";
 
 export default AppRouter;

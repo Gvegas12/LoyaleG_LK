@@ -1,6 +1,6 @@
 import { ComponentStory, ComponentMeta } from "@storybook/react";
 
-import { Template, ITemplateProps } from "./Template";
+import { Template } from "./Template";
 
 export default {
   title: "shared/Template",
