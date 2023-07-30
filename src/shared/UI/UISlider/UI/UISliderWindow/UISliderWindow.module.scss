@@ -1,0 +1,16 @@
+.UISliderWindow {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  height: 100%;
+  width: 100%;
+  margin: 0 auto;
+}
+.items {
+  flex-grow: 2;
+
+  display: flex;
+  overflow-x: hidden;
+  width: 100%;
+}

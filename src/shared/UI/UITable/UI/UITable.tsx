@@ -4,7 +4,6 @@ import clsx from "clsx";
 import UITableBody from "./components/UITableBody";
 
 import { getTableHeadKeys } from "./helpers/getTableHeadKeys";
-import { useUITableHeadOmit } from "./hooks/useUITableHeadOmit";
 import type { IUITableProps, TableData } from "../types";
 
 import styles from "./UITable.module.scss";
@@ -13,7 +12,7 @@ import { UIButton } from "../../UIButton";
 const UITable: React.FC<IUITableProps> = ({
   omit,
   className,
-  head,
+  head = [],
   body,
   onClickItem,
   trClassName,
@@ -21,31 +20,56 @@ const UITable: React.FC<IUITableProps> = ({
   button,
 }) => {
   const [tableData, setTableData] = React.useState<TableData>({
+    head: head.length ? head : getTableHeadKeys(body),
     body,
-    head: head || getTableHeadKeys(body),
   });
 
-  useUITableHeadOmit({ omit, setTableData });
+  React.useEffect(() => {
+    setTableData((prev) => ({
+      ...prev,
+      body,
+    }));
+  }, [body]);
 
-  const trStyles = {
-    gridTemplateColumns: `repeat(${tableData.head.length}, 1fr)`,
-  };
+  React.useEffect(() => {
+    if (omit?.length) {
+      setTableData((prev) => ({
+        ...prev,
+        head: prev?.head?.filter(
+          (headItem) => !new Set(omit).has(headItem) && headItem
+        ),
+      }));
+    }
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [omit]);
+
+  console.log(tableData);
 
   return (
     <div data-testid="uitable" className={clsx(styles.UITable, className)}>
-      <div style={trStyles} className={clsx(styles.tr, styles.head)}>
+      <div
+        style={{ gridTemplateColumns: `repeat(${tableData.head.length}, 1fr)` }}
+        className={clsx(styles.tr, styles.head)}
+      >
         {tableData.head.map((k) => (
-          <div className={clsx(!head && styles.firstLetterToUppercase)} key={k}>
+          <div
+            className={clsx(!head.length && styles.firstLetterToUppercase)}
+            key={k}
+          >
             {k}
           </div>
         ))}
       </div>
       <UITableBody
-        _trStyles={{ ...trStyles, ...trStylesProp }}
+        _trStyles={{
+          gridTemplateColumns: `repeat(${tableData.head.length}, 1fr)`,
+          ...trStylesProp,
+        }}
         body={tableData.body}
         omit={omit}
         trClassName={trClassName}
-        onClickItem={(args): void => onClickItem(args)}
+        onClickItem={(args) => onClickItem?.(args)}
       />
       {button && (
         <UIButton className={clsx(button.className, styles.btn)} {...button}>

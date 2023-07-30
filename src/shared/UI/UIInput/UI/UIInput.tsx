@@ -26,7 +26,7 @@ interface IUIInputComponentProps extends HTMLInputProps {
 
 // prettier-ignore
 interface IUIInputProps<Values extends FieldValues> extends IUIInputComponentProps {
-  controller: UseControllerProps<Values>;
+  controller?: UseControllerProps<Values>;
 }
 
 export type InputType<Values extends FieldValues> = IUIInputProps<Values>;
@@ -60,6 +60,7 @@ export const UIInput = <Values extends FieldValues>({
       <input
         {...field}
         {...props}
+        value={field.value || ""}
         type={type}
         data-testid="uiinput"
         className={clsx(styles.input, "focus--primary", inputClassName)}

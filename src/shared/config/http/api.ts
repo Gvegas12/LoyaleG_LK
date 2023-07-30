@@ -2,8 +2,8 @@ import axios from "axios";
 
 import { ApiPaths } from "./constants/apiPaths";
 import { LS_ACCESS_TOKEN_NAME } from "./constants/localStorage";
-import type { AuthResponse } from "./types";
 import { authStore } from "@/entities/auth";
+import type { AuthResponse } from "./types";
 
 const $api = axios.create({
   baseURL: __API_URL__,

@@ -10,8 +10,11 @@ const store = create(
     subscribeWithSelector(
       immer<IUserSchema>((set) => ({
         user: {} as User,
+        authCodeData: [],
         setUser: (data) =>
           set((state) => void (state.user = { ...state.user, ...data })),
+        setAuthCodeData: (data) =>
+          set((state) => void (state.authCodeData = [...data])),
       }))
     )
   )

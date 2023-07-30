@@ -1,0 +1,15 @@
+.UIBadge {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 0;
+  width: 20px;
+  height: 20px;
+  border-radius: 40%;
+
+  font: 500 var(--font-s);
+
+  color: black;
+  background-color: var(--primary-color);
+}

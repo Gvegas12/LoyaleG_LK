@@ -1,0 +1,6 @@
+.Statistics {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: calc(100vh - var(--navbar-height));
+}

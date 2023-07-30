@@ -1,19 +1,21 @@
 import { z } from "zod";
 import {
   emailValidationRegExp,
+  getErrorMessages,
   passwordValidationRegExp,
 } from "@/shared/lib/constants";
 
+const errorMessages = getErrorMessages();
+
 export const signupByEmailValidationSchema = z.object({
-  firstname: z.string(),
-  lastname: z.string(),
-  birthDay: z.date().optional(),
+  firstname: z.string().max(20),
+  lastname: z.string().max(20),
+  birthDay: z.string().optional(),
   phone: z.string(),
   email: z
     .string()
-    .email({ message: "Пожалуйста, введите валидный email" })
-    .regex(emailValidationRegExp),
-  password: z.string().regex(passwordValidationRegExp, {
-    message: "Пожалуйста, введите валидный пароль",
-  }),
+    .email(errorMessages.email)
+    .regex(emailValidationRegExp, errorMessages.email),
+  password: z.string(),
+  // .regex(passwordValidationRegExp, errorMessages.password),
 });

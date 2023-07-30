@@ -1,0 +1,19 @@
+.UISidebarLinkList,
+.wrapper {
+  display: flex;
+  flex-direction: column;
+}
+.UISidebarLinkList {
+  .name {
+    font: var(--font-s);
+    text-transform: uppercase;
+    color: var(--third-text-color);
+  }
+
+  padding-bottom: var(--sidebar-paddingToBorderBottom);
+  border-bottom: 1.5px dashed #545454;
+}
+.wrapper {
+  row-gap: 25px;
+  margin-top: 15px;
+}

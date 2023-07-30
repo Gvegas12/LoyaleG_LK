@@ -26,6 +26,7 @@ export const UIButton: React.FC<IUIButtonProps> = ({
   color = "primary",
   variant = "default",
   onClick,
+  type,
   ...props
 }) => {
   const [showSelectBody, setShowSelectBody] = React.useState<boolean>();
@@ -54,7 +55,12 @@ export const UIButton: React.FC<IUIButtonProps> = ({
   );
 
   return (
-    <button onClick={onClickHandler} className={classNames} {...props}>
+    <button
+      onClick={onClickHandler}
+      className={classNames}
+      type={type}
+      {...props}
+    >
       {children}
       {variant === "select" && (
         <>

@@ -5,7 +5,10 @@ export type SignupByEmailFormData = z.infer<
   typeof signupByEmailValidationSchema
 >;
 
-export type SignupQueryParams = {
-  secret: string;
+export type SignupData = SignupByEmailFormData & {
+  subscriptionId?: number;
 };
-export type SignupByEmailDto = SignupByEmailFormData & SignupQueryParams;
+export interface ISignupSchema {
+  signupData: SignupData;
+  setSignupData: (value: SignupData) => void;
+}

@@ -1,12 +1,9 @@
 import React from "react";
 import clsx from "clsx";
 
-import UI from "@/shared/UI";
+import { useUserStore } from "@/entities/user";
 import { authRoutePaths } from "@/shared/config/routes";
-import { SidebarLinks } from "./components/SidebarLinks";
-import type { ISidebarLinkProps } from "./components/SidebarLink";
-
-import styles from "./Sidebar.module.scss";
+import UI, { IUISidebarLinkListProps } from "@/shared/UI";
 
 /* icons */
 import DashboardIcon from "./icons/dashboard.svg";
@@ -17,17 +14,16 @@ import SettingsIcon from "./icons/settings.svg";
 import SupportIcon from "./icons/support.svg";
 import AboutUsIcon from "./icons/about.svg";
 
+import styles from "./Sidebar.module.scss";
+
 export interface ISidebarProps {
   className?: string;
 }
 
-type LinksDataType = {
-  name: string;
-  data: Array<ISidebarLinkProps>;
-};
-
 export const Sidebar: React.FC<ISidebarProps> = ({ className }) => {
-  const mainMenuLinksData: LinksDataType = {
+  const { authCodeData } = useUserStore((state) => state);
+
+  const mainMenuLinksData: IUISidebarLinkListProps = {
     name: "Главное меню",
     data: [
       {
@@ -47,7 +43,7 @@ export const Sidebar: React.FC<ISidebarProps> = ({ className }) => {
     ],
   };
 
-  const processesLinksData: LinksDataType = {
+  const processesLinksData: IUISidebarLinkListProps = {
     name: "Процессы",
     data: [
       {
@@ -71,10 +67,18 @@ export const Sidebar: React.FC<ISidebarProps> = ({ className }) => {
           to: authRoutePaths.users,
         },
       },
+      {
+        IconComponent: CustomersIcon,
+        link: {
+          text: "Администраторы",
+          to: authRoutePaths.admins,
+        },
+        badge: authCodeData.length,
+      },
     ],
   };
 
-  const optionsLinksData: LinksDataType = {
+  const optionsLinksData: IUISidebarLinkListProps = {
     name: "Опции",
     data: [
       {
@@ -105,9 +109,9 @@ export const Sidebar: React.FC<ISidebarProps> = ({ className }) => {
     <div data-testid="sidebar" className={clsx(styles.Sidebar, className)}>
       <UI.Logo />
       <div className={styles.wrapper}>
-        <SidebarLinks {...mainMenuLinksData} />
-        <SidebarLinks {...processesLinksData} />
-        <SidebarLinks {...optionsLinksData} />
+        <UI.SidebarLinkList {...mainMenuLinksData} />
+        <UI.SidebarLinkList {...processesLinksData} />
+        <UI.SidebarLinkList {...optionsLinksData} />
         <UI.ThemeSwitcher />
       </div>
     </div>

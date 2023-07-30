@@ -5,9 +5,7 @@ import { Template } from "./Template";
 export default {
   title: "shared/Template",
   component: Template,
-  argTypes: {
-    backgroundColor: { control: "color" },
-  },
+  argTypes: {},
 } as ComponentMeta<typeof Template>;
 
 const StorybookComponent: ComponentStory<typeof Template> = (args) => (

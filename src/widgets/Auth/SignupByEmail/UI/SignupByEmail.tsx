@@ -6,24 +6,23 @@ import { useNavigate } from "react-router-dom";
 import UI, { InputType } from "@/shared/UI";
 import {
   SignupByEmailForm,
-  SignupByEmailFormData,
   SignupByEmailService,
-  SignupQueryParams,
+  SignupByEmailFormData,
   signupByEmailValidationSchema,
 } from "@/features/Auth/SignupByEmailForm";
-import { useParseURLSearchParams } from "@/shared/lib/hooks";
 import { authRoutePaths } from "@/shared/config/routes";
+import { SelectSubscription } from "@/features/Auth/SelectSubscription";
+import { SessionStorageKeysEnum } from "@/shared/lib/constants";
 
 import styles from "./SignupByEmail.module.scss";
 
 export const SignupByEmail: React.FC = () => {
-  const queryParams = useParseURLSearchParams<Partial<SignupQueryParams>>();
   const navigate = useNavigate();
-  console.log(queryParams);
 
   const { control, handleSubmit } = useForm<SignupByEmailFormData>({
     resolver: zodResolver(signupByEmailValidationSchema),
   });
+
   const inputs = React.useMemo<InputType<SignupByEmailFormData>[]>(
     () => [
       {
@@ -91,34 +90,38 @@ export const SignupByEmail: React.FC = () => {
     [control]
   );
 
-  if (!queryParams.secret) {
-    return null;
-  }
+  React.useEffect(
+    () => () =>
+      sessionStorage.removeItem(SessionStorageKeysEnum.SUBSCRIPTION_ID),
+    []
+  );
 
   const onSubmitHandler = (data: SignupByEmailFormData) => {
     SignupByEmailService.signup({
-      secret: queryParams.secret,
       ...data,
+      subscriptionId: Number(
+        sessionStorage.getItem(SessionStorageKeysEnum.SUBSCRIPTION_ID)
+      ),
     })
       .then(() => {
         navigate(authRoutePaths.home, { replace: true });
       })
-      .catch((err) => {
-        // if (
-        //   err.response.data.description === CustomerInactiveApiError.description
-        // ) {
-        //   navigate(publicRoutePaths.confirm_email, {
-        //     state: { ...data } as ConfirmEmailLocationState,
-        //   });
-        // }
+      .catch(() => {
+        ("");
       });
   };
 
   return (
     <form className={styles.form} onSubmit={handleSubmit(onSubmitHandler)}>
       <UI.Box className={styles.formWrapper}>
-        <h3 className={styles.title}>Регистрация (Только для админов)</h3>
-        <SignupByEmailForm inputs={inputs} />
+        <UI.Slider>
+          <UI.SliderItem>
+            <SelectSubscription />
+          </UI.SliderItem>
+          <UI.SliderItem>
+            <SignupByEmailForm inputs={inputs} />
+          </UI.SliderItem>
+        </UI.Slider>
       </UI.Box>
     </form>
   );

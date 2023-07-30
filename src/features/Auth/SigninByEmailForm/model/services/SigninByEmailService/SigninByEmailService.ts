@@ -1,5 +1,5 @@
-import { AxiosResponse } from "axios";
-import $api, {
+import {
+  $api,
   ApiPaths,
   AuthResponse,
   LS_ACCESS_TOKEN_NAME,

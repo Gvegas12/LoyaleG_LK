@@ -1,0 +1,26 @@
+.EstablishmentItemPage {
+  display: flex;
+}
+
+.content {
+  flex-grow: 1;
+  z-index: 1;
+  background: var(--secondary-bg-color);
+}
+
+.title {
+  font: var(--font-l);
+  font-weight: 600;
+}
+
+.description {
+  color: var(--third-text-color);
+}
+
+.cards {
+  margin-top: 20px;
+
+  display: flex;
+  align-items: center;
+  column-gap: 20px;
+}
